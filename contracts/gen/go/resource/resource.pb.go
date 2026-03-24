@@ -1502,22 +1502,20 @@ const file_resource_resource_proto_rawDesc = "" +
 	"\x19RESOURCE_STATUS_AVAILABLE\x10\x01\x12\x1c\n" +
 	"\x18RESOURCE_STATUS_OCCUPIED\x10\x02\x12\x1f\n" +
 	"\x1bRESOURCE_STATUS_MAINTENANCE\x10\x03\x12\x1d\n" +
-	"\x19RESOURCE_STATUS_EMERGENCY\x10\x042\xc7\x04\n" +
-	"\x14ResourceAdminService\x12Y\n" +
+	"\x19RESOURCE_STATUS_EMERGENCY\x10\x042\xb8\x05\n" +
+	"\x15ResourcePublicService\x12Y\n" +
 	"\x0eCreateResource\x12\".resource.v1.CreateResourceRequest\x1a#.resource.v1.CreateResourceResponse\x12P\n" +
 	"\vGetResource\x12\x1f.resource.v1.GetResourceRequest\x1a .resource.v1.GetResourceResponse\x12_\n" +
 	"\x10GetResourcesList\x12$.resource.v1.GetResourcesListRequest\x1a%.resource.v1.GetResourcesListResponse\x12Y\n" +
 	"\x0eUpdateResource\x12\".resource.v1.UpdateResourceRequest\x1a#.resource.v1.UpdateResourceResponse\x12Y\n" +
 	"\x0eDeleteResource\x12\".resource.v1.DeleteResourceRequest\x1a#.resource.v1.DeleteResourceResponse\x12k\n" +
-	"\x14ChangeResourceStatus\x12(.resource.v1.ChangeResourceStatusRequest\x1a).resource.v1.ChangeResourceStatusResponse2\xba\x03\n" +
+	"\x14ChangeResourceStatus\x12(.resource.v1.ChangeResourceStatusRequest\x1a).resource.v1.ChangeResourceStatusResponse\x12n\n" +
+	"\x15GetAvailableResources\x12).resource.v1.GetAvailableResourcesRequest\x1a*.resource.v1.GetAvailableResourcesResponse2\xba\x03\n" +
 	"\x16ResourceBookingService\x12P\n" +
 	"\vGetResource\x12\x1f.resource.v1.GetResourceRequest\x1a .resource.v1.GetResourceResponse\x12h\n" +
 	"\x13CheckResourceStatus\x12'.resource.v1.CheckResourceStatusRequest\x1a(.resource.v1.CheckResourceStatusResponse\x12n\n" +
 	"\x15GetAvailableResources\x12).resource.v1.GetAvailableResourcesRequest\x1a*.resource.v1.GetAvailableResourcesResponse\x12t\n" +
-	"\x17UpdateResourceOccupancy\x12+.resource.v1.UpdateResourceOccupancyRequest\x1a,.resource.v1.UpdateResourceOccupancyResponse2\xd9\x01\n" +
-	"\x15ResourcePublicService\x12n\n" +
-	"\x15GetAvailableResources\x12).resource.v1.GetAvailableResourcesRequest\x1a*.resource.v1.GetAvailableResourcesResponse\x12P\n" +
-	"\vGetResource\x12\x1f.resource.v1.GetResourceRequest\x1a .resource.v1.GetResourceResponseBFZDgithub.com/acyushka/oregon-infra/contracts/proto/resource;resourcev1b\x06proto3"
+	"\x17UpdateResourceOccupancy\x12+.resource.v1.UpdateResourceOccupancyRequest\x1a,.resource.v1.UpdateResourceOccupancyResponseBFZDgithub.com/acyushka/oregon-infra/contracts/proto/resource;resourcev1b\x06proto3"
 
 var (
 	file_resource_resource_proto_rawDescOnce sync.Once
@@ -1586,32 +1584,30 @@ var file_resource_resource_proto_depIdxs = []int32{
 	0,  // 21: resource.v1.GetAvailableResourcesRequest.types:type_name -> resource.v1.ResourceType
 	2,  // 22: resource.v1.GetAvailableResourcesResponse.resources:type_name -> resource.v1.Resource
 	1,  // 23: resource.v1.UpdateResourceOccupancyResponse.status:type_name -> resource.v1.ResourceStatus
-	6,  // 24: resource.v1.ResourceAdminService.CreateResource:input_type -> resource.v1.CreateResourceRequest
-	8,  // 25: resource.v1.ResourceAdminService.GetResource:input_type -> resource.v1.GetResourceRequest
-	10, // 26: resource.v1.ResourceAdminService.GetResourcesList:input_type -> resource.v1.GetResourcesListRequest
-	12, // 27: resource.v1.ResourceAdminService.UpdateResource:input_type -> resource.v1.UpdateResourceRequest
-	14, // 28: resource.v1.ResourceAdminService.DeleteResource:input_type -> resource.v1.DeleteResourceRequest
-	16, // 29: resource.v1.ResourceAdminService.ChangeResourceStatus:input_type -> resource.v1.ChangeResourceStatusRequest
-	8,  // 30: resource.v1.ResourceBookingService.GetResource:input_type -> resource.v1.GetResourceRequest
-	18, // 31: resource.v1.ResourceBookingService.CheckResourceStatus:input_type -> resource.v1.CheckResourceStatusRequest
-	20, // 32: resource.v1.ResourceBookingService.GetAvailableResources:input_type -> resource.v1.GetAvailableResourcesRequest
-	22, // 33: resource.v1.ResourceBookingService.UpdateResourceOccupancy:input_type -> resource.v1.UpdateResourceOccupancyRequest
-	20, // 34: resource.v1.ResourcePublicService.GetAvailableResources:input_type -> resource.v1.GetAvailableResourcesRequest
-	8,  // 35: resource.v1.ResourcePublicService.GetResource:input_type -> resource.v1.GetResourceRequest
-	7,  // 36: resource.v1.ResourceAdminService.CreateResource:output_type -> resource.v1.CreateResourceResponse
-	9,  // 37: resource.v1.ResourceAdminService.GetResource:output_type -> resource.v1.GetResourceResponse
-	11, // 38: resource.v1.ResourceAdminService.GetResourcesList:output_type -> resource.v1.GetResourcesListResponse
-	13, // 39: resource.v1.ResourceAdminService.UpdateResource:output_type -> resource.v1.UpdateResourceResponse
-	15, // 40: resource.v1.ResourceAdminService.DeleteResource:output_type -> resource.v1.DeleteResourceResponse
-	17, // 41: resource.v1.ResourceAdminService.ChangeResourceStatus:output_type -> resource.v1.ChangeResourceStatusResponse
+	6,  // 24: resource.v1.ResourcePublicService.CreateResource:input_type -> resource.v1.CreateResourceRequest
+	8,  // 25: resource.v1.ResourcePublicService.GetResource:input_type -> resource.v1.GetResourceRequest
+	10, // 26: resource.v1.ResourcePublicService.GetResourcesList:input_type -> resource.v1.GetResourcesListRequest
+	12, // 27: resource.v1.ResourcePublicService.UpdateResource:input_type -> resource.v1.UpdateResourceRequest
+	14, // 28: resource.v1.ResourcePublicService.DeleteResource:input_type -> resource.v1.DeleteResourceRequest
+	16, // 29: resource.v1.ResourcePublicService.ChangeResourceStatus:input_type -> resource.v1.ChangeResourceStatusRequest
+	20, // 30: resource.v1.ResourcePublicService.GetAvailableResources:input_type -> resource.v1.GetAvailableResourcesRequest
+	8,  // 31: resource.v1.ResourceBookingService.GetResource:input_type -> resource.v1.GetResourceRequest
+	18, // 32: resource.v1.ResourceBookingService.CheckResourceStatus:input_type -> resource.v1.CheckResourceStatusRequest
+	20, // 33: resource.v1.ResourceBookingService.GetAvailableResources:input_type -> resource.v1.GetAvailableResourcesRequest
+	22, // 34: resource.v1.ResourceBookingService.UpdateResourceOccupancy:input_type -> resource.v1.UpdateResourceOccupancyRequest
+	7,  // 35: resource.v1.ResourcePublicService.CreateResource:output_type -> resource.v1.CreateResourceResponse
+	9,  // 36: resource.v1.ResourcePublicService.GetResource:output_type -> resource.v1.GetResourceResponse
+	11, // 37: resource.v1.ResourcePublicService.GetResourcesList:output_type -> resource.v1.GetResourcesListResponse
+	13, // 38: resource.v1.ResourcePublicService.UpdateResource:output_type -> resource.v1.UpdateResourceResponse
+	15, // 39: resource.v1.ResourcePublicService.DeleteResource:output_type -> resource.v1.DeleteResourceResponse
+	17, // 40: resource.v1.ResourcePublicService.ChangeResourceStatus:output_type -> resource.v1.ChangeResourceStatusResponse
+	21, // 41: resource.v1.ResourcePublicService.GetAvailableResources:output_type -> resource.v1.GetAvailableResourcesResponse
 	9,  // 42: resource.v1.ResourceBookingService.GetResource:output_type -> resource.v1.GetResourceResponse
 	19, // 43: resource.v1.ResourceBookingService.CheckResourceStatus:output_type -> resource.v1.CheckResourceStatusResponse
 	21, // 44: resource.v1.ResourceBookingService.GetAvailableResources:output_type -> resource.v1.GetAvailableResourcesResponse
 	23, // 45: resource.v1.ResourceBookingService.UpdateResourceOccupancy:output_type -> resource.v1.UpdateResourceOccupancyResponse
-	21, // 46: resource.v1.ResourcePublicService.GetAvailableResources:output_type -> resource.v1.GetAvailableResourcesResponse
-	9,  // 47: resource.v1.ResourcePublicService.GetResource:output_type -> resource.v1.GetResourceResponse
-	36, // [36:48] is the sub-list for method output_type
-	24, // [24:36] is the sub-list for method input_type
+	35, // [35:46] is the sub-list for method output_type
+	24, // [24:35] is the sub-list for method input_type
 	24, // [24:24] is the sub-list for extension type_name
 	24, // [24:24] is the sub-list for extension extendee
 	0,  // [0:24] is the sub-list for field type_name
@@ -1640,7 +1636,7 @@ func file_resource_resource_proto_init() {
 			NumEnums:      2,
 			NumMessages:   22,
 			NumExtensions: 0,
-			NumServices:   3,
+			NumServices:   2,
 		},
 		GoTypes:           file_resource_resource_proto_goTypes,
 		DependencyIndexes: file_resource_resource_proto_depIdxs,

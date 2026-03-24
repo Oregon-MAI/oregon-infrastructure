@@ -55,16 +55,17 @@ message DeviceDetails {
 }
 
 // ───────────────────────────────────────────
-//  for Admin
+//  for Frontend
 // ───────────────────────────────────────────
 
-service ResourceAdminService {
+service ResourcePublicService {
   rpc CreateResource(CreateResourceRequest) returns (CreateResourceResponse);
   rpc GetResource(GetResourceRequest) returns (GetResourceResponse);
   rpc GetResourcesList(GetResourcesListRequest) returns (GetResourcesListResponse);
   rpc UpdateResource(UpdateResourceRequest) returns (UpdateResourceResponse);
   rpc DeleteResource(DeleteResourceRequest) returns (DeleteResourceResponse);
   rpc ChangeResourceStatus(ChangeResourceStatusRequest) returns (ChangeResourceStatusResponse);
+  rpc GetAvailableResources(GetAvailableResourcesRequest) returns (GetAvailableResourcesResponse);
 }
 
 message CreateResourceRequest {
@@ -164,13 +165,4 @@ message UpdateResourceOccupancyRequest {
 message UpdateResourceOccupancyResponse {
   bool           success = 1;
   ResourceStatus status  = 2;
-}
-
-// ───────────────────────────────────────────
-//  for Frontend
-// ───────────────────────────────────────────
-
-service ResourcePublicService {
-  rpc GetAvailableResources(GetAvailableResourcesRequest) returns (GetAvailableResourcesResponse);
-  rpc GetResource(GetResourceRequest) returns (GetResourceResponse);
 }

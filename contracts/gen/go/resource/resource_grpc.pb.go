@@ -19,291 +19,329 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ResourceAdminService_CreateResource_FullMethodName       = "/resource.v1.ResourceAdminService/CreateResource"
-	ResourceAdminService_GetResource_FullMethodName          = "/resource.v1.ResourceAdminService/GetResource"
-	ResourceAdminService_GetResourcesList_FullMethodName     = "/resource.v1.ResourceAdminService/GetResourcesList"
-	ResourceAdminService_UpdateResource_FullMethodName       = "/resource.v1.ResourceAdminService/UpdateResource"
-	ResourceAdminService_DeleteResource_FullMethodName       = "/resource.v1.ResourceAdminService/DeleteResource"
-	ResourceAdminService_ChangeResourceStatus_FullMethodName = "/resource.v1.ResourceAdminService/ChangeResourceStatus"
+	ResourcePublicService_CreateResource_FullMethodName        = "/resource.v1.ResourcePublicService/CreateResource"
+	ResourcePublicService_GetResource_FullMethodName           = "/resource.v1.ResourcePublicService/GetResource"
+	ResourcePublicService_GetResourcesList_FullMethodName      = "/resource.v1.ResourcePublicService/GetResourcesList"
+	ResourcePublicService_UpdateResource_FullMethodName        = "/resource.v1.ResourcePublicService/UpdateResource"
+	ResourcePublicService_DeleteResource_FullMethodName        = "/resource.v1.ResourcePublicService/DeleteResource"
+	ResourcePublicService_ChangeResourceStatus_FullMethodName  = "/resource.v1.ResourcePublicService/ChangeResourceStatus"
+	ResourcePublicService_GetAvailableResources_FullMethodName = "/resource.v1.ResourcePublicService/GetAvailableResources"
 )
 
-// ResourceAdminServiceClient is the client API for ResourceAdminService service.
+// ResourcePublicServiceClient is the client API for ResourcePublicService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResourceAdminServiceClient interface {
+type ResourcePublicServiceClient interface {
 	CreateResource(ctx context.Context, in *CreateResourceRequest, opts ...grpc.CallOption) (*CreateResourceResponse, error)
 	GetResource(ctx context.Context, in *GetResourceRequest, opts ...grpc.CallOption) (*GetResourceResponse, error)
 	GetResourcesList(ctx context.Context, in *GetResourcesListRequest, opts ...grpc.CallOption) (*GetResourcesListResponse, error)
 	UpdateResource(ctx context.Context, in *UpdateResourceRequest, opts ...grpc.CallOption) (*UpdateResourceResponse, error)
 	DeleteResource(ctx context.Context, in *DeleteResourceRequest, opts ...grpc.CallOption) (*DeleteResourceResponse, error)
 	ChangeResourceStatus(ctx context.Context, in *ChangeResourceStatusRequest, opts ...grpc.CallOption) (*ChangeResourceStatusResponse, error)
+	GetAvailableResources(ctx context.Context, in *GetAvailableResourcesRequest, opts ...grpc.CallOption) (*GetAvailableResourcesResponse, error)
 }
 
-type resourceAdminServiceClient struct {
+type resourcePublicServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewResourceAdminServiceClient(cc grpc.ClientConnInterface) ResourceAdminServiceClient {
-	return &resourceAdminServiceClient{cc}
+func NewResourcePublicServiceClient(cc grpc.ClientConnInterface) ResourcePublicServiceClient {
+	return &resourcePublicServiceClient{cc}
 }
 
-func (c *resourceAdminServiceClient) CreateResource(ctx context.Context, in *CreateResourceRequest, opts ...grpc.CallOption) (*CreateResourceResponse, error) {
+func (c *resourcePublicServiceClient) CreateResource(ctx context.Context, in *CreateResourceRequest, opts ...grpc.CallOption) (*CreateResourceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateResourceResponse)
-	err := c.cc.Invoke(ctx, ResourceAdminService_CreateResource_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResourcePublicService_CreateResource_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resourceAdminServiceClient) GetResource(ctx context.Context, in *GetResourceRequest, opts ...grpc.CallOption) (*GetResourceResponse, error) {
+func (c *resourcePublicServiceClient) GetResource(ctx context.Context, in *GetResourceRequest, opts ...grpc.CallOption) (*GetResourceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResourceResponse)
-	err := c.cc.Invoke(ctx, ResourceAdminService_GetResource_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResourcePublicService_GetResource_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resourceAdminServiceClient) GetResourcesList(ctx context.Context, in *GetResourcesListRequest, opts ...grpc.CallOption) (*GetResourcesListResponse, error) {
+func (c *resourcePublicServiceClient) GetResourcesList(ctx context.Context, in *GetResourcesListRequest, opts ...grpc.CallOption) (*GetResourcesListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetResourcesListResponse)
-	err := c.cc.Invoke(ctx, ResourceAdminService_GetResourcesList_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResourcePublicService_GetResourcesList_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resourceAdminServiceClient) UpdateResource(ctx context.Context, in *UpdateResourceRequest, opts ...grpc.CallOption) (*UpdateResourceResponse, error) {
+func (c *resourcePublicServiceClient) UpdateResource(ctx context.Context, in *UpdateResourceRequest, opts ...grpc.CallOption) (*UpdateResourceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateResourceResponse)
-	err := c.cc.Invoke(ctx, ResourceAdminService_UpdateResource_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResourcePublicService_UpdateResource_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resourceAdminServiceClient) DeleteResource(ctx context.Context, in *DeleteResourceRequest, opts ...grpc.CallOption) (*DeleteResourceResponse, error) {
+func (c *resourcePublicServiceClient) DeleteResource(ctx context.Context, in *DeleteResourceRequest, opts ...grpc.CallOption) (*DeleteResourceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteResourceResponse)
-	err := c.cc.Invoke(ctx, ResourceAdminService_DeleteResource_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResourcePublicService_DeleteResource_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resourceAdminServiceClient) ChangeResourceStatus(ctx context.Context, in *ChangeResourceStatusRequest, opts ...grpc.CallOption) (*ChangeResourceStatusResponse, error) {
+func (c *resourcePublicServiceClient) ChangeResourceStatus(ctx context.Context, in *ChangeResourceStatusRequest, opts ...grpc.CallOption) (*ChangeResourceStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ChangeResourceStatusResponse)
-	err := c.cc.Invoke(ctx, ResourceAdminService_ChangeResourceStatus_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ResourcePublicService_ChangeResourceStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ResourceAdminServiceServer is the server API for ResourceAdminService service.
-// All implementations must embed UnimplementedResourceAdminServiceServer
+func (c *resourcePublicServiceClient) GetAvailableResources(ctx context.Context, in *GetAvailableResourcesRequest, opts ...grpc.CallOption) (*GetAvailableResourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableResourcesResponse)
+	err := c.cc.Invoke(ctx, ResourcePublicService_GetAvailableResources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResourcePublicServiceServer is the server API for ResourcePublicService service.
+// All implementations must embed UnimplementedResourcePublicServiceServer
 // for forward compatibility.
-type ResourceAdminServiceServer interface {
+type ResourcePublicServiceServer interface {
 	CreateResource(context.Context, *CreateResourceRequest) (*CreateResourceResponse, error)
 	GetResource(context.Context, *GetResourceRequest) (*GetResourceResponse, error)
 	GetResourcesList(context.Context, *GetResourcesListRequest) (*GetResourcesListResponse, error)
 	UpdateResource(context.Context, *UpdateResourceRequest) (*UpdateResourceResponse, error)
 	DeleteResource(context.Context, *DeleteResourceRequest) (*DeleteResourceResponse, error)
 	ChangeResourceStatus(context.Context, *ChangeResourceStatusRequest) (*ChangeResourceStatusResponse, error)
-	mustEmbedUnimplementedResourceAdminServiceServer()
+	GetAvailableResources(context.Context, *GetAvailableResourcesRequest) (*GetAvailableResourcesResponse, error)
+	mustEmbedUnimplementedResourcePublicServiceServer()
 }
 
-// UnimplementedResourceAdminServiceServer must be embedded to have
+// UnimplementedResourcePublicServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedResourceAdminServiceServer struct{}
+type UnimplementedResourcePublicServiceServer struct{}
 
-func (UnimplementedResourceAdminServiceServer) CreateResource(context.Context, *CreateResourceRequest) (*CreateResourceResponse, error) {
+func (UnimplementedResourcePublicServiceServer) CreateResource(context.Context, *CreateResourceRequest) (*CreateResourceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateResource not implemented")
 }
-func (UnimplementedResourceAdminServiceServer) GetResource(context.Context, *GetResourceRequest) (*GetResourceResponse, error) {
+func (UnimplementedResourcePublicServiceServer) GetResource(context.Context, *GetResourceRequest) (*GetResourceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetResource not implemented")
 }
-func (UnimplementedResourceAdminServiceServer) GetResourcesList(context.Context, *GetResourcesListRequest) (*GetResourcesListResponse, error) {
+func (UnimplementedResourcePublicServiceServer) GetResourcesList(context.Context, *GetResourcesListRequest) (*GetResourcesListResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetResourcesList not implemented")
 }
-func (UnimplementedResourceAdminServiceServer) UpdateResource(context.Context, *UpdateResourceRequest) (*UpdateResourceResponse, error) {
+func (UnimplementedResourcePublicServiceServer) UpdateResource(context.Context, *UpdateResourceRequest) (*UpdateResourceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateResource not implemented")
 }
-func (UnimplementedResourceAdminServiceServer) DeleteResource(context.Context, *DeleteResourceRequest) (*DeleteResourceResponse, error) {
+func (UnimplementedResourcePublicServiceServer) DeleteResource(context.Context, *DeleteResourceRequest) (*DeleteResourceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DeleteResource not implemented")
 }
-func (UnimplementedResourceAdminServiceServer) ChangeResourceStatus(context.Context, *ChangeResourceStatusRequest) (*ChangeResourceStatusResponse, error) {
+func (UnimplementedResourcePublicServiceServer) ChangeResourceStatus(context.Context, *ChangeResourceStatusRequest) (*ChangeResourceStatusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ChangeResourceStatus not implemented")
 }
-func (UnimplementedResourceAdminServiceServer) mustEmbedUnimplementedResourceAdminServiceServer() {}
-func (UnimplementedResourceAdminServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedResourcePublicServiceServer) GetAvailableResources(context.Context, *GetAvailableResourcesRequest) (*GetAvailableResourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableResources not implemented")
+}
+func (UnimplementedResourcePublicServiceServer) mustEmbedUnimplementedResourcePublicServiceServer() {}
+func (UnimplementedResourcePublicServiceServer) testEmbeddedByValue()                               {}
 
-// UnsafeResourceAdminServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResourceAdminServiceServer will
+// UnsafeResourcePublicServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResourcePublicServiceServer will
 // result in compilation errors.
-type UnsafeResourceAdminServiceServer interface {
-	mustEmbedUnimplementedResourceAdminServiceServer()
+type UnsafeResourcePublicServiceServer interface {
+	mustEmbedUnimplementedResourcePublicServiceServer()
 }
 
-func RegisterResourceAdminServiceServer(s grpc.ServiceRegistrar, srv ResourceAdminServiceServer) {
-	// If the following call panics, it indicates UnimplementedResourceAdminServiceServer was
+func RegisterResourcePublicServiceServer(s grpc.ServiceRegistrar, srv ResourcePublicServiceServer) {
+	// If the following call panics, it indicates UnimplementedResourcePublicServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ResourceAdminService_ServiceDesc, srv)
+	s.RegisterService(&ResourcePublicService_ServiceDesc, srv)
 }
 
-func _ResourceAdminService_CreateResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResourcePublicService_CreateResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateResourceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResourceAdminServiceServer).CreateResource(ctx, in)
+		return srv.(ResourcePublicServiceServer).CreateResource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResourceAdminService_CreateResource_FullMethodName,
+		FullMethod: ResourcePublicService_CreateResource_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceAdminServiceServer).CreateResource(ctx, req.(*CreateResourceRequest))
+		return srv.(ResourcePublicServiceServer).CreateResource(ctx, req.(*CreateResourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResourceAdminService_GetResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResourcePublicService_GetResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetResourceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResourceAdminServiceServer).GetResource(ctx, in)
+		return srv.(ResourcePublicServiceServer).GetResource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResourceAdminService_GetResource_FullMethodName,
+		FullMethod: ResourcePublicService_GetResource_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceAdminServiceServer).GetResource(ctx, req.(*GetResourceRequest))
+		return srv.(ResourcePublicServiceServer).GetResource(ctx, req.(*GetResourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResourceAdminService_GetResourcesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResourcePublicService_GetResourcesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetResourcesListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResourceAdminServiceServer).GetResourcesList(ctx, in)
+		return srv.(ResourcePublicServiceServer).GetResourcesList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResourceAdminService_GetResourcesList_FullMethodName,
+		FullMethod: ResourcePublicService_GetResourcesList_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceAdminServiceServer).GetResourcesList(ctx, req.(*GetResourcesListRequest))
+		return srv.(ResourcePublicServiceServer).GetResourcesList(ctx, req.(*GetResourcesListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResourceAdminService_UpdateResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResourcePublicService_UpdateResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateResourceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResourceAdminServiceServer).UpdateResource(ctx, in)
+		return srv.(ResourcePublicServiceServer).UpdateResource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResourceAdminService_UpdateResource_FullMethodName,
+		FullMethod: ResourcePublicService_UpdateResource_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceAdminServiceServer).UpdateResource(ctx, req.(*UpdateResourceRequest))
+		return srv.(ResourcePublicServiceServer).UpdateResource(ctx, req.(*UpdateResourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResourceAdminService_DeleteResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResourcePublicService_DeleteResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteResourceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResourceAdminServiceServer).DeleteResource(ctx, in)
+		return srv.(ResourcePublicServiceServer).DeleteResource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResourceAdminService_DeleteResource_FullMethodName,
+		FullMethod: ResourcePublicService_DeleteResource_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceAdminServiceServer).DeleteResource(ctx, req.(*DeleteResourceRequest))
+		return srv.(ResourcePublicServiceServer).DeleteResource(ctx, req.(*DeleteResourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResourceAdminService_ChangeResourceStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ResourcePublicService_ChangeResourceStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ChangeResourceStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResourceAdminServiceServer).ChangeResourceStatus(ctx, in)
+		return srv.(ResourcePublicServiceServer).ChangeResourceStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResourceAdminService_ChangeResourceStatus_FullMethodName,
+		FullMethod: ResourcePublicService_ChangeResourceStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourceAdminServiceServer).ChangeResourceStatus(ctx, req.(*ChangeResourceStatusRequest))
+		return srv.(ResourcePublicServiceServer).ChangeResourceStatus(ctx, req.(*ChangeResourceStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ResourceAdminService_ServiceDesc is the grpc.ServiceDesc for ResourceAdminService service.
+func _ResourcePublicService_GetAvailableResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcePublicServiceServer).GetAvailableResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcePublicService_GetAvailableResources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcePublicServiceServer).GetAvailableResources(ctx, req.(*GetAvailableResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResourcePublicService_ServiceDesc is the grpc.ServiceDesc for ResourcePublicService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ResourceAdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "resource.v1.ResourceAdminService",
-	HandlerType: (*ResourceAdminServiceServer)(nil),
+var ResourcePublicService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "resource.v1.ResourcePublicService",
+	HandlerType: (*ResourcePublicServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateResource",
-			Handler:    _ResourceAdminService_CreateResource_Handler,
+			Handler:    _ResourcePublicService_CreateResource_Handler,
 		},
 		{
 			MethodName: "GetResource",
-			Handler:    _ResourceAdminService_GetResource_Handler,
+			Handler:    _ResourcePublicService_GetResource_Handler,
 		},
 		{
 			MethodName: "GetResourcesList",
-			Handler:    _ResourceAdminService_GetResourcesList_Handler,
+			Handler:    _ResourcePublicService_GetResourcesList_Handler,
 		},
 		{
 			MethodName: "UpdateResource",
-			Handler:    _ResourceAdminService_UpdateResource_Handler,
+			Handler:    _ResourcePublicService_UpdateResource_Handler,
 		},
 		{
 			MethodName: "DeleteResource",
-			Handler:    _ResourceAdminService_DeleteResource_Handler,
+			Handler:    _ResourcePublicService_DeleteResource_Handler,
 		},
 		{
 			MethodName: "ChangeResourceStatus",
-			Handler:    _ResourceAdminService_ChangeResourceStatus_Handler,
+			Handler:    _ResourcePublicService_ChangeResourceStatus_Handler,
+		},
+		{
+			MethodName: "GetAvailableResources",
+			Handler:    _ResourcePublicService_GetAvailableResources_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -521,146 +559,6 @@ var ResourceBookingService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateResourceOccupancy",
 			Handler:    _ResourceBookingService_UpdateResourceOccupancy_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "resource/resource.proto",
-}
-
-const (
-	ResourcePublicService_GetAvailableResources_FullMethodName = "/resource.v1.ResourcePublicService/GetAvailableResources"
-	ResourcePublicService_GetResource_FullMethodName           = "/resource.v1.ResourcePublicService/GetResource"
-)
-
-// ResourcePublicServiceClient is the client API for ResourcePublicService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResourcePublicServiceClient interface {
-	GetAvailableResources(ctx context.Context, in *GetAvailableResourcesRequest, opts ...grpc.CallOption) (*GetAvailableResourcesResponse, error)
-	GetResource(ctx context.Context, in *GetResourceRequest, opts ...grpc.CallOption) (*GetResourceResponse, error)
-}
-
-type resourcePublicServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResourcePublicServiceClient(cc grpc.ClientConnInterface) ResourcePublicServiceClient {
-	return &resourcePublicServiceClient{cc}
-}
-
-func (c *resourcePublicServiceClient) GetAvailableResources(ctx context.Context, in *GetAvailableResourcesRequest, opts ...grpc.CallOption) (*GetAvailableResourcesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAvailableResourcesResponse)
-	err := c.cc.Invoke(ctx, ResourcePublicService_GetAvailableResources_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resourcePublicServiceClient) GetResource(ctx context.Context, in *GetResourceRequest, opts ...grpc.CallOption) (*GetResourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResourceResponse)
-	err := c.cc.Invoke(ctx, ResourcePublicService_GetResource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResourcePublicServiceServer is the server API for ResourcePublicService service.
-// All implementations must embed UnimplementedResourcePublicServiceServer
-// for forward compatibility.
-type ResourcePublicServiceServer interface {
-	GetAvailableResources(context.Context, *GetAvailableResourcesRequest) (*GetAvailableResourcesResponse, error)
-	GetResource(context.Context, *GetResourceRequest) (*GetResourceResponse, error)
-	mustEmbedUnimplementedResourcePublicServiceServer()
-}
-
-// UnimplementedResourcePublicServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResourcePublicServiceServer struct{}
-
-func (UnimplementedResourcePublicServiceServer) GetAvailableResources(context.Context, *GetAvailableResourcesRequest) (*GetAvailableResourcesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAvailableResources not implemented")
-}
-func (UnimplementedResourcePublicServiceServer) GetResource(context.Context, *GetResourceRequest) (*GetResourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResource not implemented")
-}
-func (UnimplementedResourcePublicServiceServer) mustEmbedUnimplementedResourcePublicServiceServer() {}
-func (UnimplementedResourcePublicServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeResourcePublicServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResourcePublicServiceServer will
-// result in compilation errors.
-type UnsafeResourcePublicServiceServer interface {
-	mustEmbedUnimplementedResourcePublicServiceServer()
-}
-
-func RegisterResourcePublicServiceServer(s grpc.ServiceRegistrar, srv ResourcePublicServiceServer) {
-	// If the following call panics, it indicates UnimplementedResourcePublicServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResourcePublicService_ServiceDesc, srv)
-}
-
-func _ResourcePublicService_GetAvailableResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAvailableResourcesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcePublicServiceServer).GetAvailableResources(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcePublicService_GetAvailableResources_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcePublicServiceServer).GetAvailableResources(ctx, req.(*GetAvailableResourcesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResourcePublicService_GetResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResourcePublicServiceServer).GetResource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResourcePublicService_GetResource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResourcePublicServiceServer).GetResource(ctx, req.(*GetResourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResourcePublicService_ServiceDesc is the grpc.ServiceDesc for ResourcePublicService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResourcePublicService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "resource.v1.ResourcePublicService",
-	HandlerType: (*ResourcePublicServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetAvailableResources",
-			Handler:    _ResourcePublicService_GetAvailableResources_Handler,
-		},
-		{
-			MethodName: "GetResource",
-			Handler:    _ResourcePublicService_GetResource_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
