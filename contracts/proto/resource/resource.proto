@@ -2,24 +2,24 @@ syntax = "proto3";
 
 package resource.v1;
 
-import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/acyushka/oregon-infra/contracts/proto/resource;resourcev1";
 
 enum ResourceType {
   RESOURCE_TYPE_UNSPECIFIED = 0;
   RESOURCE_TYPE_MEETING_ROOM = 1; // переговорка
-  RESOURCE_TYPE_WORKSPACE    = 2; // рабочее место
-  RESOURCE_TYPE_DEVICE       = 3; // устройство
+  RESOURCE_TYPE_WORKSPACE = 2; // рабочее место
+  RESOURCE_TYPE_DEVICE = 3; // устройство
 }
 
 enum ResourceStatus {
-  RESOURCE_STATUS_UNSPECIFIED  = 0;
-  RESOURCE_STATUS_AVAILABLE    = 1;  // доступен
-  RESOURCE_STATUS_OCCUPIED     = 2;  // занят прямо сейчас
-  RESOURCE_STATUS_MAINTENANCE  = 3;  // плановое обслуживание
-  RESOURCE_STATUS_EMERGENCY    = 4;  // форс-мажор
+  RESOURCE_STATUS_UNSPECIFIED = 0;
+  RESOURCE_STATUS_AVAILABLE = 1; // доступен
+  RESOURCE_STATUS_OCCUPIED = 2; // занят прямо сейчас
+  RESOURCE_STATUS_MAINTENANCE = 3; // плановое обслуживание
+  RESOURCE_STATUS_EMERGENCY = 4; // форс-мажор
 }
 
 message Resource {
@@ -30,21 +30,21 @@ message Resource {
   ResourceStatus status = 5;
   oneof details {
     MeetingRoomDetails meeting_room = 6;
-    WorkspaceDetails   workspace    = 7;
-    DeviceDetails      device       = 8;
+    WorkspaceDetails workspace = 7;
+    DeviceDetails device = 8;
   }
   google.protobuf.Timestamp created_at = 9;
   google.protobuf.Timestamp updated_at = 10;
 }
 
 message MeetingRoomDetails {
-  int32 capacity        = 1;
-  bool  has_projector   = 2;
-  bool  has_whiteboard  = 3;
+  int32 capacity = 1;
+  bool has_projector = 2;
+  bool has_whiteboard = 3;
 }
 
 message WorkspaceDetails {
-  bool  has_monitor = 1;
+  bool has_monitor = 1;
 }
 
 message DeviceDetails {
@@ -153,16 +153,16 @@ message GetAvailableResourcesRequest {
 }
 
 message GetAvailableResourcesResponse {
-  repeated Resource resources   = 1;
+  repeated Resource resources = 1;
   int32 total_count = 2;
 }
 
 message UpdateResourceOccupancyRequest {
-  string resource_id        = 1;
-  bool   is_occupied = 2;
+  string resource_id = 1;
+  bool is_occupied = 2;
 }
 
 message UpdateResourceOccupancyResponse {
-  bool           success = 1;
-  ResourceStatus status  = 2;
+  bool success = 1;
+  ResourceStatus status = 2;
 }

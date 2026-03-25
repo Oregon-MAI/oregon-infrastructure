@@ -1,0 +1,47 @@
+services:
+  # API-GW ---
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "16687:16687"
+      - "4317:4317"
+      - "4318:4318"
+  api-gw:
+    image: ghcr.io/oregon-mai/oregon-api-gateway:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./configs/api-gw.yml:/app/config/local.yml:ro
+      - ./logs/:/app/logs/
+
+  # ---
+
+  # Resource service ---
+  resource-service:
+    image: ghcr.io/oregon-mai/oregon-resource-service:latest
+    container_name: oregon-resource-service
+    volumes:
+      - ./configs/resource.yaml:/app/config/local.yml:ro
+    depends_on:
+      - postgres-resource-service
+    ports:
+      - "60008:60008"
+      - "60009:60009"
+    restart: unless-stopped
+
+  postgres-resource-service:
+    image: postgres:16-alpine
+    container_name: oregon-resource-postgres
+    environment:
+      POSTGRES_DB: resource_service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata-resource:/var/lib/postgresql/data
+      - ./migrations/0001_resources.sql:/docker-entrypoint-initdb.d/0001_resources.sql:ro
+
+volumes:
+  pgdata-resource:

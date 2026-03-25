@@ -1,0 +1,27 @@
+env: prod
+service: api-gateway
+
+http:
+  host: "0.0.0.0"
+  port: 8000
+  read_timeout: 15s
+  write_timeout: 15s
+
+logger:
+  format: json
+  level: info
+
+tracer:
+  end-point: "jaegaer:4318"
+  insecure: true
+  sample-ratio: 1.0
+
+sso:
+  base_url: "http//sso:8080"
+  timeout: 5s
+
+resource:
+  public_target: "resource-service:60009"
+  booking_target: "resource-service:60008"
+  timeout: 10s
+  dial_timeout: 5s
