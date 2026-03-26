@@ -12,7 +12,7 @@ logger:
   level: info
 
 tracer:
-  end-point: "jaegar:4318"
+  end-point: "jaeger:4318"
   insecure: true
   sample-ratio: 1.0
 

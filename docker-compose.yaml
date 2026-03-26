@@ -53,37 +53,37 @@ services:
   # ------
 
   # --- SSO ---
-  # sso-service:
-  #   image: ghcr.io/oregon-mai/oregon_sso_service:latest
-  #   container_name: oregon-sso
-  #   ports:
-  #     - "8001:8001"
-  #   depends_on:
-  #     postgres-sso-service:
-  #       condition: service_healthy
+  postgres-sso-service:
+    image: postgres:16-alpine
+    container_name: postgres-sso-service
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata-sso:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    command: ["postgres", "-p", "5433"]
 
-  # postgres-sso-service:
-  #   image: postgres:16-alpine
-  #   container_name: postgres-sso-service
-  #   ports:
-  #     - "5433:5432"
-  #   environment:
-  #     POSTGRES_USERNAME: postgres
-  #     POSTGRES_PASSWORD: root
-  #     POSTGRES_DB: postgres
-  #   volumes:
-  #     - pgdata-sso:/var/lib/postgresql/data
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
-  #     interval: 5s
-  #     timeout: 3s
-  #     retries: 10
-  #     start_period: 5s
-
-  sso:
-    image: ghcr.io/oregon-mai/oregon-sso-mock:latest
+  sso-service:
+    image: ghcr.io/oregon-mai/oregon_sso_service:latest
+    container_name: oregon-sso
     ports:
       - "8001:8001"
+    depends_on:
+      - postgres-sso-service
+
+  # sso:
+  #   image: ghcr.io/oregon-mai/oregon-sso-mock:latest
+  #   ports:
+  #     - "8001:8001"
 
 volumes:
   pgdata-resource:
