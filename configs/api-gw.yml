@@ -12,12 +12,12 @@ logger:
   level: info
 
 tracer:
-  end-point: "jaegaer:4318"
+  end-point: "jaegar:4318"
   insecure: true
   sample-ratio: 1.0
 
 sso:
-  base_url: "http//sso:8080"
+  base_url: "http://sso:8001"
   timeout: 5s
 
 resource:

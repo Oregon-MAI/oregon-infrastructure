@@ -1,7 +1,8 @@
 services:
-  # API-GW ---
+  # --- API-GW ---
   jaeger:
     image: jaegertracing/all-in-one:latest
+    container_name: oregon-jaeger
     ports:
       - "16686:16686"
       - "16687:16687"
@@ -15,16 +16,17 @@ services:
       - ./configs/api-gw.yml:/app/config/local.yml:ro
       - ./logs/:/app/logs/
 
-  # ---
+  # ------
 
-  # Resource service ---
+  # --- Resource service ---
   resource-service:
     image: ghcr.io/oregon-mai/oregon-resource-service:latest
     container_name: oregon-resource-service
     volumes:
       - ./configs/resource.yaml:/app/config/local.yml:ro
     depends_on:
-      - postgres-resource-service
+      postgres-resource-service:
+        condition: service_healthy
     ports:
       - "60008:60008"
       - "60009:60009"
@@ -42,6 +44,47 @@ services:
     volumes:
       - pgdata-resource:/var/lib/postgresql/data
       - ./migrations/0001_resources.sql:/docker-entrypoint-initdb.d/0001_resources.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+  # ------
+
+  # --- SSO ---
+  # sso-service:
+  #   image: ghcr.io/oregon-mai/oregon_sso_service:latest
+  #   container_name: oregon-sso
+  #   ports:
+  #     - "8001:8001"
+  #   depends_on:
+  #     postgres-sso-service:
+  #       condition: service_healthy
+
+  # postgres-sso-service:
+  #   image: postgres:16-alpine
+  #   container_name: postgres-sso-service
+  #   ports:
+  #     - "5433:5432"
+  #   environment:
+  #     POSTGRES_USERNAME: postgres
+  #     POSTGRES_PASSWORD: root
+  #     POSTGRES_DB: postgres
+  #   volumes:
+  #     - pgdata-sso:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
+  #     interval: 5s
+  #     timeout: 3s
+  #     retries: 10
+  #     start_period: 5s
+
+  sso:
+    image: ghcr.io/oregon-mai/oregon-sso-mock:latest
+    ports:
+      - "8001:8001"
 
 volumes:
   pgdata-resource:
+  pgdata-sso:
