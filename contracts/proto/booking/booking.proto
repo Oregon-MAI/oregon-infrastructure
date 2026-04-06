@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package booking.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/acyushka/oregon-infra/contracts/proto/booking;bookingv1";
+
+enum BookingStatus {
+  BOOKING_STATUS_UNSPECIFIED = 0;
+  BOOKING_STATUS_CONFIRMED = 1;
+  BOOKING_STATUS_CANCELED = 2;
+}
+
+message Booking {
+  string booking_id = 1;
+  string resource_id = 2;
+  string user_id = 3;
+  string resource_name = 4;
+  string resource_location = 5;
+  string resource_type = 6;
+  google.protobuf.Timestamp starts_at = 7;
+  google.protobuf.Timestamp ends_at = 8;
+  BookingStatus status = 9;
+  string cancel_reason = 10;
+  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
+}
+
+message CreateBookingRequest {
+  string resource_id = 1;
+  string user_id = 2;
+  google.protobuf.Timestamp starts_at = 3;
+  google.protobuf.Timestamp ends_at = 4;
+}
+message CreateBookingResponse {
+  Booking booking = 1;
+}
+
+message GetBookingRequest { string booking_id = 1; }
+message GetBookingResponse { Booking booking = 1; }
+
+message UserCancelBookingRequest { string booking_id = 1; }
+message UserCancelBookingResponse { Booking booking = 1; }
+
+message AdminCancelBookingRequest { string booking_id = 1; }
+message AdminCancelBookingResponse { Booking booking = 1; }
+
+message ListBookingsByUserRequest { string user_id = 1; }
+message ListBookingsByUserResponse { repeated Booking bookings = 1; }
+
+message ListBookingsByResourceRequest {
+  string resource_id = 1;
+  google.protobuf.Timestamp from = 2;
+  google.protobuf.Timestamp to = 3;
+}
+message ListBookingsByResourceResponse {
+  repeated Booking bookings = 1;
+}
+
+service BookingService {
+  rpc CreateBooking(CreateBookingRequest) returns (CreateBookingResponse);
+  rpc GetBooking(GetBookingRequest) returns (GetBookingResponse);
+  rpc CancelBooking(UserCancelBookingRequest) returns (UserCancelBookingResponse);
+  rpc ListBookingsByUser(ListBookingsByUserRequest) returns (ListBookingsByUserResponse);
+  rpc ListBookingsByResource(ListBookingsByResourceRequest) returns (ListBookingsByResourceResponse);
+}
