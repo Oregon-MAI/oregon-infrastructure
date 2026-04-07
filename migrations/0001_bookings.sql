@@ -1,7 +1,7 @@
 CREATE TYPE booking_status AS ENUM ('confirmed', 'canceled');
 
 CREATE TABLE bookings (
-    booking_id          UUID PRIMARY KEY,
+    booking_id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     resource_id         UUID NOT NULL,
     user_id             UUID NOT NULL,
     resource_name       VARCHAR(255) NOT NULL,
