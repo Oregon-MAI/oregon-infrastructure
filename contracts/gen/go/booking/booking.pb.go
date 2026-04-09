@@ -832,12 +832,13 @@ const file_booking_booking_proto_rawDesc = "" +
 	"\rBookingStatus\x12\x1e\n" +
 	"\x1aBOOKING_STATUS_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18BOOKING_STATUS_CONFIRMED\x10\x01\x12\x1b\n" +
-	"\x17BOOKING_STATUS_CANCELED\x10\x022\xe7\x03\n" +
+	"\x17BOOKING_STATUS_CANCELED\x10\x022\xd0\x04\n" +
 	"\x0eBookingService\x12T\n" +
 	"\rCreateBooking\x12 .booking.v1.CreateBookingRequest\x1a!.booking.v1.CreateBookingResponse\x12K\n" +
 	"\n" +
-	"GetBooking\x12\x1d.booking.v1.GetBookingRequest\x1a\x1e.booking.v1.GetBookingResponse\x12\\\n" +
-	"\rCancelBooking\x12$.booking.v1.UserCancelBookingRequest\x1a%.booking.v1.UserCancelBookingResponse\x12c\n" +
+	"GetBooking\x12\x1d.booking.v1.GetBookingRequest\x1a\x1e.booking.v1.GetBookingResponse\x12`\n" +
+	"\x11UserCancelBooking\x12$.booking.v1.UserCancelBookingRequest\x1a%.booking.v1.UserCancelBookingResponse\x12c\n" +
+	"\x12AdminCancelBooking\x12%.booking.v1.AdminCancelBookingRequest\x1a&.booking.v1.AdminCancelBookingResponse\x12c\n" +
 	"\x12ListBookingsByUser\x12%.booking.v1.ListBookingsByUserRequest\x1a&.booking.v1.ListBookingsByUserResponse\x12o\n" +
 	"\x16ListBookingsByResource\x12).booking.v1.ListBookingsByResourceRequest\x1a*.booking.v1.ListBookingsByResourceResponseBDZBgithub.com/acyushka/oregon-infra/contracts/proto/booking;bookingv1b\x06proto3"
 
@@ -890,16 +891,18 @@ var file_booking_booking_proto_depIdxs = []int32{
 	1,  // 14: booking.v1.ListBookingsByResourceResponse.bookings:type_name -> booking.v1.Booking
 	2,  // 15: booking.v1.BookingService.CreateBooking:input_type -> booking.v1.CreateBookingRequest
 	4,  // 16: booking.v1.BookingService.GetBooking:input_type -> booking.v1.GetBookingRequest
-	6,  // 17: booking.v1.BookingService.CancelBooking:input_type -> booking.v1.UserCancelBookingRequest
-	10, // 18: booking.v1.BookingService.ListBookingsByUser:input_type -> booking.v1.ListBookingsByUserRequest
-	12, // 19: booking.v1.BookingService.ListBookingsByResource:input_type -> booking.v1.ListBookingsByResourceRequest
-	3,  // 20: booking.v1.BookingService.CreateBooking:output_type -> booking.v1.CreateBookingResponse
-	5,  // 21: booking.v1.BookingService.GetBooking:output_type -> booking.v1.GetBookingResponse
-	7,  // 22: booking.v1.BookingService.CancelBooking:output_type -> booking.v1.UserCancelBookingResponse
-	11, // 23: booking.v1.BookingService.ListBookingsByUser:output_type -> booking.v1.ListBookingsByUserResponse
-	13, // 24: booking.v1.BookingService.ListBookingsByResource:output_type -> booking.v1.ListBookingsByResourceResponse
-	20, // [20:25] is the sub-list for method output_type
-	15, // [15:20] is the sub-list for method input_type
+	6,  // 17: booking.v1.BookingService.UserCancelBooking:input_type -> booking.v1.UserCancelBookingRequest
+	8,  // 18: booking.v1.BookingService.AdminCancelBooking:input_type -> booking.v1.AdminCancelBookingRequest
+	10, // 19: booking.v1.BookingService.ListBookingsByUser:input_type -> booking.v1.ListBookingsByUserRequest
+	12, // 20: booking.v1.BookingService.ListBookingsByResource:input_type -> booking.v1.ListBookingsByResourceRequest
+	3,  // 21: booking.v1.BookingService.CreateBooking:output_type -> booking.v1.CreateBookingResponse
+	5,  // 22: booking.v1.BookingService.GetBooking:output_type -> booking.v1.GetBookingResponse
+	7,  // 23: booking.v1.BookingService.UserCancelBooking:output_type -> booking.v1.UserCancelBookingResponse
+	9,  // 24: booking.v1.BookingService.AdminCancelBooking:output_type -> booking.v1.AdminCancelBookingResponse
+	11, // 25: booking.v1.BookingService.ListBookingsByUser:output_type -> booking.v1.ListBookingsByUserResponse
+	13, // 26: booking.v1.BookingService.ListBookingsByResource:output_type -> booking.v1.ListBookingsByResourceResponse
+	21, // [21:27] is the sub-list for method output_type
+	15, // [15:21] is the sub-list for method input_type
 	15, // [15:15] is the sub-list for extension type_name
 	15, // [15:15] is the sub-list for extension extendee
 	0,  // [0:15] is the sub-list for field type_name

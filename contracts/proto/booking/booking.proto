@@ -61,7 +61,8 @@ message ListBookingsByResourceResponse {
 service BookingService {
   rpc CreateBooking(CreateBookingRequest) returns (CreateBookingResponse);
   rpc GetBooking(GetBookingRequest) returns (GetBookingResponse);
-  rpc CancelBooking(UserCancelBookingRequest) returns (UserCancelBookingResponse);
+  rpc UserCancelBooking(UserCancelBookingRequest) returns (UserCancelBookingResponse);
+  rpc AdminCancelBooking(AdminCancelBookingRequest) returns (AdminCancelBookingResponse);
   rpc ListBookingsByUser(ListBookingsByUserRequest) returns (ListBookingsByUserResponse);
   rpc ListBookingsByResource(ListBookingsByResourceRequest) returns (ListBookingsByResourceResponse);
 }
