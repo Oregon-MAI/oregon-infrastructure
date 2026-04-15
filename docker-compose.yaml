@@ -56,8 +56,6 @@ services:
   postgres-sso-service:
     image: postgres:16-alpine
     container_name: postgres-sso-service
-    ports:
-      - "5433:5432"
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: root
@@ -80,11 +78,89 @@ services:
     depends_on:
       - postgres-sso-service
 
-  # sso:
-  #   image: ghcr.io/oregon-mai/oregon-sso-mock:latest
-  #   ports:
-  #     - "8001:8001"
+  # --- Booking ----
+  booking-service:
+    image: ghcr.io/oregon-mai/oregon-booking-service:latest
+    volumes:
+      - ./configs/booking.yaml:/app/config/local.yml:ro
+    depends_on:
+      booking-postgres:
+        condition: service_healthy
+      resource-service:
+        condition: service_started
+      kafka-init-topics:
+        condition: service_completed_successfully
+    ports:
+      - "60017:60017"
+    restart: unless-stopped
+
+  booking-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: booking_service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5438:5432"
+    volumes:
+      - pgdata-booking:/var/lib/postgresql/data
+      - ./migrations/0001_bookings.sql:/docker-entrypoint-initdb.d/0001_bookings.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d booking_service"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # --- Kafka ---
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on:
+      zookeeper:
+        condition: service_started
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "kafka-topics --bootstrap-server localhost:9092 --list > /dev/null 2>&1",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  kafka-init-topics:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - >-
+        cub kafka-ready -b kafka:29092 1 60;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.user.booking --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.admin.cancel --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.user.cancel --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --list
+    restart: "no"
 
 volumes:
   pgdata-resource:
   pgdata-sso:
+  pgdata-booking:

@@ -1,0 +1,25 @@
+env: "prod"
+
+grpc:
+  port: 60017
+
+resource_service:
+  address: "resource-service:60008"
+
+kafka:
+  enabled: false
+  brokers:
+    - "kafka:9092"
+  client_id: "oregon-booking-service"
+  topics:
+    user_booking: "topic.user.booking"
+    admin_cancel: "topic.admin.cancel"
+    user_cancel: "topic.user.cancel"
+
+database:
+  host: "booking-postgres"
+  port: 5432
+  user: "postgres"
+  password: "postgres"
+  name: "booking_service"
+  ssl_mode: "disable"
