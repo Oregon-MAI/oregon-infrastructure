@@ -4,7 +4,7 @@ grpc:
   port: 60017
 
 resource_service:
-  address: "resource-service:60008"
+  address: "resource-service:60009"
 
 kafka:
   enabled: false
