@@ -92,7 +92,7 @@ services:
         condition: service_completed_successfully
     ports:
       - "60017:60017"
-    restart: unless-stopped
+    restart: on-failure
 
   booking-postgres:
     image: postgres:16-alpine
@@ -110,6 +110,38 @@ services:
       interval: 5s
       timeout: 3s
       retries: 20
+  # ------
+
+  # --- Notification ---
+  oregon-notification-service:
+    image: ghcr.io/oregon-mai/oregon-notification-service:latest
+    restart: on-failure
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - TOPICS=topic.user.booking,topic.user.cancel,topic.admin.cancel,admin.update,messages
+      - DATABASE_URL=postgresql+asyncpg://postgres:root@notification-postgres:5432/postgres
+    ports:
+      - "8003:8003"
+    depends_on:
+      - kafka
+      - notification-postgres
+
+  notification-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata-notification:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  # ------
 
   # --- Kafka ---
   zookeeper:
@@ -145,6 +177,27 @@ services:
       timeout: 5s
       retries: 20
 
+  kafbat-ui:
+    image: kafbat/kafka-ui:latest
+    container_name: oregon-kafbat-ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: "oregon-kafka"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:29092"
+      KAFKA_CLUSTERS_0_ZOOKEEPER: "zookeeper:2181"
+      KAFKA_CLUSTERS_0_METRICS_PORT: 9092
+      KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_CLUSTERS_0_POLLING_TIMEOUT_MS: 5000
+      DYNAMIC_CONFIG_ENABLED: "false"
+      SWAGGER_UI_ENABLED: "true"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      zookeeper:
+        condition: service_started
+    restart: on-failure
+
   kafka-init-topics:
     image: confluentinc/cp-kafka:7.6.1
     depends_on:
@@ -164,3 +217,4 @@ volumes:
   pgdata-resource:
   pgdata-sso:
   pgdata-booking:
+  pgdata-notification:
