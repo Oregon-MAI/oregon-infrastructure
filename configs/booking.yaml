@@ -4,7 +4,7 @@ grpc:
   port: 60017
 
 resource_service:
-  address: "resource-service:60009"
+  address: "oregon-resource-service:60009"
 
 tracer:
   end-point: "jaeger:4318"

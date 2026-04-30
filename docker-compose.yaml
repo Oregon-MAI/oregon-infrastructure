@@ -8,18 +8,22 @@ services:
       - "16687:16687"
       - "4317:4317"
       - "4318:4318"
-  api-gw:
+
+  oregon-api-gw:
     image: ghcr.io/oregon-mai/oregon-api-gateway:latest
     ports:
       - "8000:8000"
     volumes:
       - ./configs/api-gw.yml:/app/config/local.yml:ro
       - ./logs/:/app/logs/
+    depends_on:
+      jaeger:
+        condition: service_started
 
   # ------
 
   # --- Resource service ---
-  resource-service:
+  oregon-resource-service:
     image: ghcr.io/oregon-mai/oregon-resource-service:latest
     container_name: oregon-resource-service
     volumes:
@@ -30,7 +34,7 @@ services:
     ports:
       - "60008:60008"
       - "60009:60009"
-    restart: unless-stopped
+    restart: on-failure
 
   postgres-resource-service:
     image: postgres:16-alpine
@@ -57,7 +61,7 @@ services:
     image: postgres:16-alpine
     container_name: postgres-sso-service
     environment:
-      POSTGRES_USERNAME: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: postgres
     volumes:
@@ -73,23 +77,28 @@ services:
   sso-service:
     image: ghcr.io/oregon-mai/oregon_sso_service:latest
     container_name: oregon-sso
+    environment:
+      - JAEGER=jaeger:4317
     ports:
       - "8001:8001"
     depends_on:
       - postgres-sso-service
+      - jaeger
 
   # --- Booking ----
-  booking-service:
+  oregon-booking-service:
     image: ghcr.io/oregon-mai/oregon-booking-service:latest
     volumes:
       - ./configs/booking.yaml:/app/config/local.yml:ro
     depends_on:
       booking-postgres:
         condition: service_healthy
-      resource-service:
+      oregon-resource-service:
         condition: service_started
       kafka-init-topics:
         condition: service_completed_successfully
+      jaeger:
+        condition: service_started
     ports:
       - "60017:60017"
     restart: on-failure
@@ -123,8 +132,10 @@ services:
     ports:
       - "8003:8003"
     depends_on:
-      - kafka
-      - notification-postgres
+      kafka:
+        condition: service_healthy
+      notification-postgres:
+        condition: service_healthy
 
   notification-postgres:
     image: postgres:16-alpine
