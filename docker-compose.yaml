@@ -13,6 +13,8 @@ services:
     image: ghcr.io/oregon-mai/oregon-api-gateway:latest
     ports:
       - "8000:8000"
+    environment:
+      - TZ=Europe/Moscow
     volumes:
       - ./configs/api-gw.yml:/app/config/local.yml:ro
       - ./logs/:/app/logs/
@@ -26,6 +28,8 @@ services:
   oregon-resource-service:
     image: ghcr.io/oregon-mai/oregon-resource-service:latest
     container_name: oregon-resource-service
+    environment:
+      - TZ=Europe/Moscow
     volumes:
       - ./configs/resource.yaml:/app/config/local.yml:ro
     depends_on:
@@ -40,6 +44,7 @@ services:
     image: postgres:16-alpine
     container_name: oregon-resource-postgres
     environment:
+      TZ: Europe/Moscow
       POSTGRES_DB: resource_service
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -61,6 +66,7 @@ services:
     image: postgres:16-alpine
     container_name: postgres-sso-service
     environment:
+      TZ: Europe/Moscow
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: postgres
@@ -79,6 +85,7 @@ services:
     container_name: oregon-sso
     environment:
       - JAEGER=jaeger:4317
+      - TZ=Europe/Moscow
     ports:
       - "8001:8001"
     depends_on:
@@ -88,6 +95,8 @@ services:
   # --- Booking ----
   oregon-booking-service:
     image: ghcr.io/oregon-mai/oregon-booking-service:latest
+    environment:
+      - TZ=Europe/Moscow
     volumes:
       - ./configs/booking.yaml:/app/config/local.yml:ro
     depends_on:
@@ -106,6 +115,7 @@ services:
   booking-postgres:
     image: postgres:16-alpine
     environment:
+      TZ: Europe/Moscow
       POSTGRES_DB: booking_service
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -126,14 +136,15 @@ services:
     image: ghcr.io/oregon-mai/oregon-notification-service:latest
     restart: on-failure
     environment:
+      - TZ=Europe/Moscow
       - REDIS_PASS=redispass
       - REDIS_URL=notification-redis
       - REDIS_PORT=6379
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-      - USER_BOOK_TOPIC=user.book
-      - USER_CANCEL_TOPIC=user.cancel
-      - ADMIN_CANCEL_TOPIC=admin.cancel
-      - ADMIN_UPDATE_TOPIC=admin.update
+      - USER_BOOK_TOPIC=topic.user.book
+      - USER_CANCEL_TOPIC=topic.user.cancel
+      - ADMIN_CANCEL_TOPIC=topic.admin.cancel
+      - ADMIN_UPDATE_TOPIC=topic.admin.update
       - MESSAGES_TOPIC=messages
     ports:
       - "8003:8003"
@@ -147,16 +158,15 @@ services:
     image: redis:7.4-bookworm
     ports:
       - "6379:6379"
+    environment:
+      - TZ=Europe/Moscow
     volumes:
       - redisdata-notification:/data
     command: >
       redis-server
       --appendonly yes
       --appendfsync everysec
-      --auto-aof-rewrite-percentage 100
-      --auto-aof-rewrite-min-size 64mb
       --requirepass "redispass"
-      --maxmemory 2gb
       --maxmemory-policy allkeys-lru
       --save ""
       --tcp-backlog 511
@@ -184,6 +194,7 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.6.1
     environment:
+      TZ: Europe/Moscow
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
@@ -195,11 +206,11 @@ services:
     ports:
       - "9092:9092"
     environment:
+      TZ: Europe/Moscow
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
-
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
@@ -220,6 +231,7 @@ services:
     ports:
       - "8080:8080"
     environment:
+      TZ: Europe/Moscow
       KAFKA_CLUSTERS_0_NAME: "oregon-kafka"
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:29092"
       KAFKA_CLUSTERS_0_ZOOKEEPER: "zookeeper:2181"
