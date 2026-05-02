@@ -9,10 +9,21 @@ services:
       - "4317:4317"
       - "4318:4318"
 
+  envoy:
+    image: envoyproxy/envoy:v1.38.0
+    container_name: oregon-envoy
+    ports:
+      - "8000:10000"
+      - "9901:9901"
+    volumes:
+      - ./configs/envoy.yaml:/etc/envoy/envoy.yaml:ro
+    depends_on:
+      - oregon-api-gw
+
   oregon-api-gw:
     image: ghcr.io/oregon-mai/oregon-api-gateway:latest
-    ports:
-      - "8000:8000"
+    deploy:
+      replicas: 3
     environment:
       - TZ=Europe/Moscow
     volumes:
@@ -35,9 +46,6 @@ services:
     depends_on:
       postgres-resource-service:
         condition: service_healthy
-    ports:
-      - "60008:60008"
-      - "60009:60009"
     restart: on-failure
 
   postgres-resource-service:
@@ -48,8 +56,6 @@ services:
       POSTGRES_DB: resource_service
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-    ports:
-      - "5432:5432"
     volumes:
       - pgdata-resource:/var/lib/postgresql/data
       - ./migrations/0001_resources.sql:/docker-entrypoint-initdb.d/0001_resources.sql:ro
@@ -86,8 +92,6 @@ services:
     environment:
       - JAEGER=jaeger:4317
       - TZ=Europe/Moscow
-    ports:
-      - "8001:8001"
     depends_on:
       - postgres-sso-service
       - jaeger
@@ -108,8 +112,6 @@ services:
         condition: service_completed_successfully
       jaeger:
         condition: service_started
-    ports:
-      - "60017:60017"
     restart: on-failure
 
   booking-postgres:
@@ -119,8 +121,6 @@ services:
       POSTGRES_DB: booking_service
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-    ports:
-      - "5438:5432"
     volumes:
       - pgdata-booking:/var/lib/postgresql/data
       - ./migrations/0001_bookings.sql:/docker-entrypoint-initdb.d/0001_bookings.sql:ro
@@ -141,13 +141,11 @@ services:
       - REDIS_URL=notification-redis
       - REDIS_PORT=6379
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-      - USER_BOOK_TOPIC=topic.user.book
+      - USER_BOOK_TOPIC=topic.user.booking
       - USER_CANCEL_TOPIC=topic.user.cancel
       - ADMIN_CANCEL_TOPIC=topic.admin.cancel
-      - ADMIN_UPDATE_TOPIC=topic.admin.update
+      - ADMIN_UPDATE_TOPIC=admin.update
       - MESSAGES_TOPIC=messages
-    ports:
-      - "8003:8003"
     depends_on:
       kafka:
         condition: service_healthy
@@ -156,8 +154,6 @@ services:
 
   notification-redis:
     image: redis:7.4-bookworm
-    ports:
-      - "6379:6379"
     environment:
       - TZ=Europe/Moscow
     volumes:
