@@ -124,6 +124,7 @@ services:
     volumes:
       - pgdata-booking:/var/lib/postgresql/data
       - ./migrations/0001_bookings.sql:/docker-entrypoint-initdb.d/0001_bookings.sql:ro
+      - ./migrations/0002_outbox.sql:/docker-entrypoint-initdb.d/0002_outbox.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d booking_service"]
       interval: 5s
@@ -171,7 +172,7 @@ services:
       --databases 16
       --stop-writes-on-bgsave-error no
       --repl-diskless-sync no
-    restart: unless-stopped
+    restart: on-failure
     sysctls:
       - net.core.somaxconn=512
     ulimits:
@@ -255,6 +256,8 @@ services:
         kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.user.booking --replication-factor 1 --partitions 3;
         kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.admin.cancel --replication-factor 1 --partitions 3;
         kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.user.cancel --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.messages.start --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.messages.end --replication-factor 1 --partitions 3;
         kafka-topics --bootstrap-server kafka:29092 --list
     restart: "no"
 
