@@ -121,7 +121,7 @@ static_resources:
 
   clusters:
     - name: auth_loopback_cluster
-      connect_timeout: 0.25s
+      connect_timeout: 2s
       type: STATIC
       load_assignment:
         cluster_name: auth_loopback_cluster
@@ -148,7 +148,7 @@ static_resources:
                       port_value: 8000
 
     - name: notification_cluster
-      connect_timeout: 1s
+      connect_timeout: 10s
       type: STRICT_DNS
       lb_policy: MAGLEV
       maglev_lb_config:
