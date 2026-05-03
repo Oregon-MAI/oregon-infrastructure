@@ -298,3 +298,23 @@
 {"time":"2026-05-03T14:30:07.930256459+03:00","level":"INFO","msg":"request completed","service":"api-gateway","env":"prod","method":"GET","path":"/api/v1/resources/c4feaeeb-8f0d-4bc9-aff9-d3158feda4a2/bookings","status":200,"latency":5620583,"trace_id":"45137893ac591379bfc179b13fffbbec","span_id":"76ab4e3b6f3baeb9"}
 {"time":"2026-05-03T14:30:07.930808084+03:00","level":"INFO","msg":"request completed","service":"api-gateway","env":"prod","method":"GET","path":"/api/v1/resources/c4feaeeb-8f0d-4bc9-aff9-d3158feda4a2/bookings","status":200,"latency":6192459,"trace_id":"2e8692df01badb8a86d5b70dad75f549","span_id":"b69e5bf4c7c7f9d9"}
 {"time":"2026-05-03T14:30:07.939379376+03:00","level":"INFO","msg":"request completed","service":"api-gateway","env":"prod","method":"GET","path":"/api/v1/resources/c4feaeeb-8f0d-4bc9-aff9-d3158feda4a2/bookings","status":200,"latency":12586667,"trace_id":"4b90c42e3a045170819e9837871a3cd5","span_id":"577ce87e2879cb70"}
+{"time":"2026-05-03T17:43:43.04033141+03:00","level":"INFO","msg":"server starting","service":"api-gateway","env":"prod","addr":"0.0.0.0:8000"}
+{"time":"2026-05-03T17:43:43.397476241+03:00","level":"INFO","msg":"server starting","service":"api-gateway","env":"prod","addr":"0.0.0.0:8000"}
+{"time":"2026-05-03T17:43:43.701241363+03:00","level":"INFO","msg":"server starting","service":"api-gateway","env":"prod","addr":"0.0.0.0:8000"}
+{"time":"2026-05-03T14:44:13.743809492Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:44:13.74501415Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:44:13.750279674Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-03T14:47:13.600920267Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:47:13.601462593Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:47:13.601838102Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:47:13.602558922Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:47:13.603140648Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T17:47:14.427740988+03:00","level":"INFO","msg":"shutting down","service":"api-gateway","env":"prod"}
+{"time":"2026-05-03T17:47:14.441320176+03:00","level":"INFO","msg":"shutting down","service":"api-gateway","env":"prod"}
+{"time":"2026-05-03T17:47:14.449659378+03:00","level":"INFO","msg":"shutting down","service":"api-gateway","env":"prod"}
+{"time":"2026-05-03T17:49:21.636209131+03:00","level":"INFO","msg":"server starting","service":"api-gateway","env":"prod","addr":"0.0.0.0:8000"}
+{"time":"2026-05-03T17:49:21.982899774+03:00","level":"INFO","msg":"server starting","service":"api-gateway","env":"prod","addr":"0.0.0.0:8000"}
+{"time":"2026-05-03T17:49:22.302452953+03:00","level":"INFO","msg":"server starting","service":"api-gateway","env":"prod","addr":"0.0.0.0:8000"}
+{"time":"2026-05-03T14:49:45.157086749Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:49:45.158240916Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-03T14:49:45.163801681Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}

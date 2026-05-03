@@ -103,6 +103,7 @@ services:
       - TZ=Europe/Moscow
     volumes:
       - ./configs/booking.yaml:/app/config/local.yml:ro
+      - ./logs/:/app/logs/
     depends_on:
       booking-postgres:
         condition: service_healthy
@@ -261,8 +262,38 @@ services:
         kafka-topics --bootstrap-server kafka:29092 --list
     restart: "no"
 
+  # --- Loki + Promtail + Grafana ---
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: oregon-loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./configs/loki-config.yaml:/etc/loki/local-config.yaml:ro
+      - loki-data:/loki
+
+  promtail:
+    image: grafana/promtail:2.9.4
+    container_name: oregon-promtail
+    command: -config.file=/etc/promtail/config.yaml
+    volumes:
+      - ./configs/promtail-config.yaml:/etc/promtail/config.yaml:ro
+      - ./logs/:/var/log/app/:ro
+    depends_on:
+      - loki
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: oregon-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+  # ------
 volumes:
   pgdata-resource:
   pgdata-sso:
   pgdata-booking:
   redisdata-notification:
+  loki-data:
