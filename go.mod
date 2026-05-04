@@ -1,4 +1,5 @@
 module github.com/Oregon-MAI/oregon-infrastructure
+
 go 1.25.7
 
 require (

@@ -24,3 +24,15 @@ tasks:
       - gen-py-sso
     cmds:
       - protoc -I contracts/proto contracts/proto/sso/sso.proto --python_out=./contracts/gen/python/ --grpc_python_out=./contracts/gen/python/
+
+  generate-doc-booking:
+    aliases:
+      - gen-doc-book
+    cmds:
+      - protoc -I contracts/proto contracts/proto/booking/booking.proto --doc_out=./contracts/docs --doc_opt=markdown,booking.md
+
+  generate-doc-resource:
+    aliases:
+      - gen-doc-resource
+    cmds:
+      - protoc -I contracts/proto contracts/proto/resource/resource.proto --doc_out=./contracts/docs --doc_opt=markdown,resource.md
