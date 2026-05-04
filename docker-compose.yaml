@@ -43,6 +43,7 @@ services:
       - TZ=Europe/Moscow
     volumes:
       - ./configs/resource.yaml:/app/config/local.yml:ro
+      - ./logs/:/app/logs/
     depends_on:
       postgres-resource-service:
         condition: service_healthy
