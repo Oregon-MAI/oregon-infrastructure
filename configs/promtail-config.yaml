@@ -9,11 +9,26 @@ clients:
   - url: http://loki:3100/loki/api/v1/push
 
 scrape_configs:
-  - job_name: app-logs
+  - job_name: api-gateway
     static_configs:
-      - targets:
-          - localhost
+      - targets: [localhost]
         labels:
-          job: app
-          __path__: /var/log/app/*.log
+          job: api-gateway
+          service: oregon-api-gw
+          __path__: /var/log/app/app.log
 
+  - job_name: booking-service
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: booking-service
+          service: oregon-booking-service
+          __path__: /var/log/app/booking.log
+
+  - job_name: resource-service
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: resource-service
+          service: oregon-resource-service
+          __path__: /var/log/app/resource.log
