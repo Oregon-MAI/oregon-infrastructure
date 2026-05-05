@@ -21,7 +21,7 @@ services:
       - oregon-api-gw
 
   oregon-api-gw:
-    image: api-gw:latest
+    image: ghcr.io/oregon-mai/oregon-api-gateway:latest
     deploy:
       replicas: 3
     environment:
