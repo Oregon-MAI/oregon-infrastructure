@@ -1,0 +1,7 @@
+scrape_configs:
+  - job_name: api-gateway
+    static_configs:
+      - targets:
+          - oregon-api-gw:8000
+        labels:
+          env: compose

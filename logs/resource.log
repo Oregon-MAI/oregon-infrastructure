@@ -102,3 +102,229 @@
 {"time":"2026-05-04T22:56:51.256255887Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
 {"time":"2026-05-04T22:56:51.256675429Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
 {"time":"2026-05-04T22:56:51.257047887Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-04T23:00:39.942224507Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.946971173Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.948629298Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.950157673Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-04T23:00:39.953393173Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-04T23:00:39.957223798Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-04T23:00:39.958187548Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-04T23:00:39.96432609Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.96733009Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:15.692778419Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:15.696355961Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:15.697920044Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:15.698286794Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T06:41:15.703438002Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T06:41:15.703643836Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T06:41:15.704852211Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T06:41:15.706389502Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T06:41:33.099206427Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:33.099405844Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:33.099946719Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:33.101115011Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T06:41:33.101134219Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T06:41:33.103041719Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:33.103223844Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:33.103077886Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T06:41:33.103587344Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T06:41:45.143439627Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:45.147242127Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:45.148792919Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T06:41:45.149152627Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T06:41:45.153465711Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T06:41:45.153692252Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T06:41:45.154092336Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T06:41:45.155154752Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T07:07:00.886615843Z","level":"INFO","msg":"resource created","service":"resource-service","env":"prod","resource_id":"1f8c7f14-b3fb-4c53-acaa-c9c15ce81eea","type":"workspace","trace_id":"20194282ce4fabd95f7a23a283e5744a","span_id":"5cefc6260b70cd54"}
+{"time":"2026-05-05T07:09:47.123582211Z","level":"INFO","msg":"resource created","service":"resource-service","env":"prod","resource_id":"68befa51-240e-4ec7-88d8-f2b6f715f6c8","type":"meeting_room","trace_id":"7de005e18109b423ec169e9611af30c9","span_id":"4d9f579029137f9c"}
+{"time":"2026-05-05T07:10:14.771014627Z","level":"INFO","msg":"resource updated","service":"resource-service","env":"prod","resource_id":"1f8c7f14-b3fb-4c53-acaa-c9c15ce81eea","trace_id":"5da223a07d5c5190d19021041f6ed17b","span_id":"e3e61e6ca519f777"}
+{"time":"2026-05-05T07:10:53.895904965Z","level":"INFO","msg":"resource updated","service":"resource-service","env":"prod","resource_id":"68befa51-240e-4ec7-88d8-f2b6f715f6c8","trace_id":"9ec8bebd1afce041a6316feef1bd893d","span_id":"f12645f45f9864ba"}
+{"time":"2026-05-05T07:12:18.186656379Z","level":"INFO","msg":"resource updated","service":"resource-service","env":"prod","resource_id":"68befa51-240e-4ec7-88d8-f2b6f715f6c8","trace_id":"ed0eb4331a51093ab01aa8e87a7ea00e","span_id":"c26f1bc3b2356356"}
+{"time":"2026-05-05T21:18:57.981978587Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.985569254Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.986792754Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.988729796Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:18:57.988763879Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:18:57.995210379Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T21:18:57.995484587Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T21:18:58.001298296Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:18:58.017047046Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:19:47.78371768Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:19:47.787211472Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:19:47.788853722Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:19:47.788982972Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T21:19:47.793145305Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T21:19:47.793365389Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T21:19:47.79375493Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:19:47.793758264Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:29:37.766320759Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.767476217Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.767999675Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.773102967Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:29:37.775559259Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T21:29:37.780905592Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:29:37.781743634Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T21:29:37.782665384Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:30:07.0356053Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:30:07.03914105Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:30:07.040634467Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:30:07.0408233Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T21:30:07.045140633Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T21:30:07.045380133Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T21:30:07.046073133Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:30:07.04607355Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:40:31.562203756Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.563205006Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.563855256Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.564501464Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:40:31.564537756Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:40:31.567410506Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T21:40:31.569250506Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T21:40:31.571070047Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.571314464Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:42:53.847020335Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:42:53.851018335Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:42:53.853616169Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:42:53.853974877Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T21:42:53.859051919Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T21:42:53.859263835Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T21:42:53.859696127Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:42:53.859733585Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:45:39.051562676Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:39.052050509Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:39.052169426Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:39.052506426Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:45:39.052605676Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T21:45:39.054745051Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T21:45:39.054932926Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T21:45:39.056876134Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:39.057292884Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:53.528099169Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:53.531640002Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:53.532889377Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T21:45:53.533039627Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T21:45:53.537297044Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T21:45:53.537432877Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T21:45:53.537832919Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T21:45:53.538427044Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T22:10:09.761484468Z","level":"INFO","msg":"resource created","service":"resource-service","env":"prod","resource_id":"f75a360e-1da6-4e1d-9241-3698e3f1a410","type":"workspace","trace_id":"8bbb3b21c01bc1febd0895297c3b0710","span_id":"a7dd41783a8d2efb"}
+{"time":"2026-05-05T22:10:17.06845543Z","level":"INFO","msg":"resource updated","service":"resource-service","env":"prod","resource_id":"f75a360e-1da6-4e1d-9241-3698e3f1a410","trace_id":"11421b56a716149bf8b276aad94ade2d","span_id":"6c9a45a7736292a4"}
+{"time":"2026-05-05T22:45:11.997914177Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.999324802Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.99989776Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:45:12.000747969Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T22:45:12.000639719Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T22:45:12.00750451Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T22:45:12.011148635Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T22:45:31.16976913Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:45:31.173308422Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:45:31.174755964Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:45:31.174887172Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T22:45:31.17956163Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T22:45:31.17969938Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T22:45:31.180018922Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T22:45:31.180026714Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T22:50:31.830779381Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.834321964Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.837604214Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.838472797Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T22:50:31.840783047Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T22:50:31.843543381Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T22:50:31.843990797Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T22:50:48.106205013Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:50:48.109368513Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:50:48.111008388Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T22:50:48.111415888Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T22:50:48.116645763Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T22:50:48.11682693Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T22:50:48.11736368Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T22:50:48.11732043Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:02:20.131769375Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:20.132270292Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:20.13377875Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:20.134571167Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:02:20.134775083Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:02:20.138138125Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T23:02:20.138194417Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T23:02:20.140553042Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:20.141126375Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:31.240265797Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:31.243545589Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:31.244792422Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:02:31.244955672Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T23:02:31.248814464Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T23:02:31.248970422Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T23:02:31.24959938Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:02:31.250087255Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:23:21.125058542Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:23:21.125782834Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:23:21.126438667Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:23:21.126913834Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:23:21.127062709Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:23:21.129768542Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T23:23:21.129934417Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T23:23:21.129988959Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:23:21.132961292Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:25:42.04719576Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:25:42.052414427Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:25:42.054319594Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:25:42.054516677Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T23:25:42.06079401Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T23:25:42.061036885Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T23:25:42.061558969Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:25:42.061557219Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:27:13.383903386Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:13.384624969Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:13.386476136Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:13.387608594Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:27:13.387884219Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:27:13.400810803Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T23:27:13.402682928Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T23:27:13.402533969Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:13.406584678Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:24.736071294Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:24.739953502Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:24.74148496Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:27:24.741661669Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T23:27:24.746631419Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T23:27:24.746958502Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T23:27:24.747544877Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:27:24.74759146Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:28:45.365108678Z","level":"INFO","msg":"resource created","service":"resource-service","env":"prod","resource_id":"343eb0c7-029b-4977-a6e2-f051700b8264","type":"workspace","trace_id":"ab2840ccfcbc76bf7504b7642b3ecad1","span_id":"8fa792584e004c88"}
+{"time":"2026-05-05T23:31:50.661184833Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:31:50.662013125Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:31:50.662628667Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:31:50.664044875Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:31:50.664111333Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:31:50.673786833Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T23:31:50.67410325Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T23:31:50.675553375Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:31:50.676238583Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:32:06.149741382Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:32:06.153096799Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:32:06.154533757Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:32:06.154693382Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T23:32:06.158453507Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T23:32:06.158592674Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T23:32:06.162463591Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:32:06.162546507Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:32:30.269282255Z","level":"INFO","msg":"resource created","service":"resource-service","env":"prod","resource_id":"c52165d6-6d08-4090-af1b-37f2416ea85e","type":"workspace","trace_id":"71f67c1342d3920cfc1275a05a5b1da4","span_id":"c487619885fc234f"}
+{"time":"2026-05-05T23:34:07.480086675Z","level":"INFO","msg":"shutdown signal received","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:34:07.4805378Z","level":"INFO","msg":"stopping grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:34:07.480881633Z","level":"INFO","msg":"graceful stopping grpc servers","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:34:07.482547133Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:34:07.482763425Z","level":"INFO","msg":"stopping grpc server","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:34:07.489150883Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"public"}
+{"time":"2026-05-05T23:34:07.489642425Z","level":"INFO","msg":"grpc server stopped","service":"resource-service","env":"prod","server":"booking"}
+{"time":"2026-05-05T23:34:07.4905128Z","level":"INFO","msg":"repository closed","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:34:07.491225341Z","level":"INFO","msg":"application stopped","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:35:30.061537754Z","level":"INFO","msg":"postgres initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:35:30.064802671Z","level":"INFO","msg":"application initialized","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:35:30.066815379Z","level":"INFO","msg":"starting grpc app","service":"resource-service","env":"prod"}
+{"time":"2026-05-05T23:35:30.066949338Z","level":"INFO","msg":"starting grpc servers","service":"resource-service","env":"prod","servers_count":2}
+{"time":"2026-05-05T23:35:30.070815504Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"booking","addr":"[::]:60008"}
+{"time":"2026-05-05T23:35:30.070929504Z","level":"INFO","msg":"grpc listener started","service":"resource-service","env":"prod","server":"public","addr":"[::]:60009"}
+{"time":"2026-05-05T23:35:30.071259671Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"public","port":60009}
+{"time":"2026-05-05T23:35:30.071292171Z","level":"INFO","msg":"grpc server serving","service":"resource-service","env":"prod","server":"booking","port":60008}
+{"time":"2026-05-05T23:36:16.560902262Z","level":"INFO","msg":"resource created","service":"resource-service","env":"prod","resource_id":"04d69e89-86e9-4572-a6b1-0dc2d34cb5db","type":"device","trace_id":"11bbae9ef055635695f8c52307b5d94f","span_id":"72f4f372e29214ff"}

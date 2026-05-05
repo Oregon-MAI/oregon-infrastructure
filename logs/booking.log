@@ -56,3 +56,169 @@
 {"time":"2026-05-04T22:56:58.668845501Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
 {"time":"2026-05-04T22:56:58.671571126Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"9562d84bd101242309759a15f81ef233","span_id":"ce06ffe1b63c0c20"}
 {"time":"2026-05-04T22:56:58.672700543Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-04T23:00:39.94487709Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.94683434Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.948772548Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-04T23:00:39.959098382Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T06:41:52.502828506Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T06:41:52.508261506Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T06:41:52.510285589Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T06:41:52.512508714Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"d9242bab1dfce1f11f5958c262ca508b","span_id":"e60402627aaaa473"}
+{"time":"2026-05-05T06:41:52.515486881Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T07:08:07.581044804Z","level":"WARN","msg":"grpc request failed","service":"booking-service","env":"prod","method":"/booking.v1.BookingService/CreateBooking","grpc_code":"Internal","error":"rpc error: code = Internal desc = failed to create booking: Service.CreateBooking: invalid booking time range","trace_id":"edeab8ece7188fa18cfc8d7c1e7d0353","span_id":"077ccdd7c22f7723"}
+{"time":"2026-05-05T07:08:14.683837669Z","level":"WARN","msg":"grpc request failed","service":"booking-service","env":"prod","method":"/booking.v1.BookingService/CreateBooking","grpc_code":"Internal","error":"rpc error: code = Internal desc = failed to create booking: Service.CreateBooking: invalid booking time range","trace_id":"b6f9fd6e35827229d55d01879224b545","span_id":"3c5096910facbf28"}
+{"time":"2026-05-05T07:08:19.016342087Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"31f632ee-98c1-4925-878e-7ebe676f62df","resource_id":"1f8c7f14-b3fb-4c53-acaa-c9c15ce81eea","user_id":"b1e4cc86-46c8-40c3-a52d-ba751a8d54f7","trace_id":"4475c12400f8afbb11c3d1b257f5ee36","span_id":"1f493924fa9d77df"}
+{"time":"2026-05-05T08:48:20.944155046Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"d987b3ce-1d4c-487a-a3cb-aaf601c7eccb","resource_id":"1f8c7f14-b3fb-4c53-acaa-c9c15ce81eea","user_id":"4280d595-905b-4e67-9e4f-07008832dadd","trace_id":"9bb70857d5e966b991d4a6acf0427e67","span_id":"20d8fac3924475bc"}
+{"time":"2026-05-05T08:48:51.588046546Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"0f5b6a2a-7683-41c3-b2f3-62a2d68dd42a","resource_id":"1f8c7f14-b3fb-4c53-acaa-c9c15ce81eea","user_id":"b1e4cc86-46c8-40c3-a52d-ba751a8d54f7","trace_id":"b9633229f24f1a008af960bef598fc76","span_id":"f7a5aaa5fdb30a99"}
+{"time":"2026-05-05T21:18:57.575144254Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.576588754Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.577528337Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.581201296Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.583128046Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"d9242bab1dfce1f11f5958c262ca508b","span_id":"e60402627aaaa473"}
+{"time":"2026-05-05T21:18:57.583759337Z","level":"WARN","msg":"outbox worker stopped","service":"booking-service","env":"prod","error":"context canceled"}
+{"time":"2026-05-05T21:18:57.588634212Z","level":"INFO","msg":"kafka producer closed","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.590895379Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:18:57.591405379Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:19:54.749801378Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T21:19:54.754128211Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:19:54.755500878Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:19:54.758119294Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"34a04ca6f8687957f41327c81f4d4f38","span_id":"e44d340661737bef"}
+{"time":"2026-05-05T21:19:54.759323711Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T21:29:37.443168009Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.444520759Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.445157425Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.448653384Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.449363259Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"34a04ca6f8687957f41327c81f4d4f38","span_id":"e44d340661737bef"}
+{"time":"2026-05-05T21:29:37.45010105Z","level":"WARN","msg":"outbox worker stopped","service":"booking-service","env":"prod","error":"context canceled"}
+{"time":"2026-05-05T21:29:37.453573509Z","level":"INFO","msg":"kafka producer closed","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.454475967Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:29:37.454940509Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:30:14.494836845Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T21:30:14.500067054Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:30:14.501871345Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:30:14.504331179Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"039b5686633c6003a217678b2d601509","span_id":"eecf8fbe685c3a2f"}
+{"time":"2026-05-05T21:30:14.506431512Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T21:40:31.135003089Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.135999131Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.136292589Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.142586839Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:40:31.145434464Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"039b5686633c6003a217678b2d601509","span_id":"eecf8fbe685c3a2f"}
+{"time":"2026-05-05T21:40:31.146481172Z","level":"WARN","msg":"outbox worker stopped","service":"booking-service","env":"prod","error":"context canceled"}
+{"time":"2026-05-05T21:40:31.149940589Z","level":"INFO","msg":"kafka producer closed","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:43:01.713801131Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T21:43:01.718033131Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:43:01.720015547Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:43:01.722178922Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"04863db6b5d1363240692fd8a1fc630d","span_id":"a7c437b744302830"}
+{"time":"2026-05-05T21:43:01.724010506Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T21:45:38.774653134Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:45:38.775629176Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:45:38.776215759Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:45:38.780992801Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:45:38.786482551Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"04863db6b5d1363240692fd8a1fc630d","span_id":"a7c437b744302830"}
+{"time":"2026-05-05T21:46:01.015004422Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T21:46:01.020476005Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:46:01.026013922Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T21:46:01.02874438Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"498ead507b988a029ab1f7dbd5e89ba8","span_id":"344585528f840b4e"}
+{"time":"2026-05-05T21:46:01.030437339Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T22:45:11.421034135Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.422248385Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.423129093Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.427184218Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.431632927Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"498ead507b988a029ab1f7dbd5e89ba8","span_id":"344585528f840b4e"}
+{"time":"2026-05-05T22:45:11.432866385Z","level":"WARN","msg":"outbox worker stopped","service":"booking-service","env":"prod","error":"context canceled"}
+{"time":"2026-05-05T22:45:11.438156468Z","level":"INFO","msg":"kafka producer closed","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.439263427Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:11.439813635Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:39.172693509Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T22:45:39.178350592Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:39.179937509Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:45:39.182337426Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"d77690607bd130471a2a2e7d51854539","span_id":"3757729da71eefda"}
+{"time":"2026-05-05T22:45:39.184875259Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T22:50:31.265779255Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.266202589Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.266887089Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.270941922Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:50:31.272336422Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"d77690607bd130471a2a2e7d51854539","span_id":"3757729da71eefda"}
+{"time":"2026-05-05T22:50:55.626778211Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T22:50:55.632396128Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:50:55.633995836Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T22:50:55.636352836Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"f1b272cfa4fd3297afd2cea2b9b07c44","span_id":"3cdfbe2aac03b7de"}
+{"time":"2026-05-05T22:50:55.638899753Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T23:02:19.712534166Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:02:19.713678291Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:02:19.7152225Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:02:19.719144625Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:02:19.724029125Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"f1b272cfa4fd3297afd2cea2b9b07c44","span_id":"3cdfbe2aac03b7de"}
+{"time":"2026-05-05T23:02:39.211514551Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T23:02:39.216825676Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:02:39.218416676Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:02:39.220836259Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"edd2a61c9ca3bd4eaac79b49a8187f6a","span_id":"8d7b16cb1779de44"}
+{"time":"2026-05-05T23:02:39.223122217Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T23:23:20.620385208Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:23:20.621656333Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:23:20.622667833Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:23:20.628732958Z","level":"INFO","msg":"outbox worker stopped","service":"booking-service","env":"prod","trace_id":"edd2a61c9ca3bd4eaac79b49a8187f6a","span_id":"8d7b16cb1779de44"}
+{"time":"2026-05-05T23:23:20.628968125Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:23:20.629938125Z","level":"WARN","msg":"outbox worker stopped","service":"booking-service","env":"prod","error":"context canceled"}
+{"time":"2026-05-05T23:23:20.633455333Z","level":"INFO","msg":"kafka producer closed","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:23:20.635167833Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:23:20.636927333Z","level":"INFO","msg":"application stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:26:56.192603294Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:56.194653544Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:56.517069628Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:56.519130086Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:56.939770128Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:56.941787961Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:57.580585295Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:57.582358253Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:58.625759837Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:26:58.627516546Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:00.466884755Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:00.46857663Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:03.89984634Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:03.90201684Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:10.57574751Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:10.577747176Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:32.215398381Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:32.217347631Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:32.557491922Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:32.559259797Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:33.007609423Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:33.009405423Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:33.657967506Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:33.660015548Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:34.739520257Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:34.741357507Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:36.662272716Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:36.664205383Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:40.155095051Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:40.157092968Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:46.816190429Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:46.818044929Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:59.866542254Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:27:59.868511713Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:28:25.719807002Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:28:25.722072586Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:29:17.176796388Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:29:17.178405971Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:30:17.425076179Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:30:17.426698096Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:31:17.650342263Z","level":"ERROR","msg":"postgres ping failed","service":"booking-service","env":"prod","error":"pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:31:17.651976513Z","level":"ERROR","msg":"failed to init app","service":"booking-service","env":"prod","error":"App.New: init repository: repository.New: pq: password authentication failed for user \"postgres\" (28P01)"}
+{"time":"2026-05-05T23:32:14.171539678Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T23:32:14.176200845Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:32:14.178417011Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:32:14.180963136Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"041fe6f03c7d298bfd1091b4981bd850","span_id":"1d49a2814c6da31e"}
+{"time":"2026-05-05T23:32:14.183112761Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T23:32:56.624923795Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"35655ece-4a7e-40d7-8fe1-76c75a26f050","resource_id":"c52165d6-6d08-4090-af1b-37f2416ea85e","user_id":"5ed8fad5-eba7-4481-9b10-692dfcb1ab7f","trace_id":"19d260f8249bfb6fa426bd54f73dfb75","span_id":"4a9ebb903d0fcc9e"}
+{"time":"2026-05-05T23:34:06.909995966Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:34:06.911030966Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:34:06.911842674Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:34:06.920629799Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:35:37.529339466Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-05T23:35:37.534677675Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:35:37.536515758Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-05T23:35:37.53935355Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"33e93ec426a8450d7683d2780cc250d0","span_id":"7449aafd07f40452"}
+{"time":"2026-05-05T23:35:37.540985466Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-05T23:35:46.981540471Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"cda468b6-0bef-42c6-b15a-f021751c2368","resource_id":"c52165d6-6d08-4090-af1b-37f2416ea85e","user_id":"5ed8fad5-eba7-4481-9b10-692dfcb1ab7f","trace_id":"b4ccbc6a0ce23c58b7c2780caa62bb0a","span_id":"f53906e76f3cc4d5"}
+{"time":"2026-05-05T23:37:31.92474963Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"6ec0d693-e63e-4734-a711-c97bbdf0c4f1","resource_id":"c52165d6-6d08-4090-af1b-37f2416ea85e","user_id":"5ed8fad5-eba7-4481-9b10-692dfcb1ab7f","trace_id":"601813baa2da266aa361cc5e69b75760","span_id":"495c90fb49b8259e"}

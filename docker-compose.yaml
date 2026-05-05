@@ -21,7 +21,7 @@ services:
       - oregon-api-gw
 
   oregon-api-gw:
-    image: ghcr.io/oregon-mai/oregon-api-gateway:latest
+    image: api-gw:latest
     deploy:
       replicas: 3
     environment:
@@ -149,10 +149,13 @@ services:
       - ADMIN_CANCEL_TOPIC=topic.admin.cancel
       - ADMIN_UPDATE_TOPIC=admin.update
       - MESSAGES_TOPIC=messages
+      - DATABASE_URL=postgresql+asyncpg://postgres:root@notification-postgres:5432/postgres
     depends_on:
       kafka:
         condition: service_healthy
       notification-redis:
+        condition: service_healthy
+      notification-postgres:
         condition: service_healthy
 
   notification-redis:
@@ -187,6 +190,21 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+
+  notification-postgres:
+    image: postgres:16-alpine
+    environment:
+      TZ: Europe/Moscow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata-notification:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
   # ------
 
   # --- Kafka ---
@@ -263,7 +281,7 @@ services:
         kafka-topics --bootstrap-server kafka:29092 --list
     restart: "no"
 
-  # --- Loki + Promtail + Grafana ---
+  # --- Loki + Promtail + Prometheus + Grafana ---
   loki:
     image: grafana/loki:2.9.4
     container_name: oregon-loki
@@ -284,6 +302,18 @@ services:
     depends_on:
       - loki
 
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      oregon-api-gw:
+        condition: service_started
+
   grafana:
     image: grafana/grafana:10.4.2
     container_name: oregon-grafana
@@ -301,3 +331,4 @@ volumes:
   pgdata-booking:
   redisdata-notification:
   loki-data:
+  pgdata-notification:
