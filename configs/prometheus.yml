@@ -5,3 +5,9 @@ scrape_configs:
           - oregon-api-gw:8000
         labels:
           env: compose
+  - job_name: sso-service
+    static_configs:
+      - targets:
+          - oregon-sso-service:8001
+        labels:
+          env: compose

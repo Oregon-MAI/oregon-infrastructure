@@ -32,3 +32,11 @@ scrape_configs:
           job: resource-service
           service: oregon-resource-service
           __path__: /var/log/app/resource.log
+
+  - job_name: sso-service
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: sso-service
+          service: oregon-sso
+          __path__: /var/log/app/sso.log
