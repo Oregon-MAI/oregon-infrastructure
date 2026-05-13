@@ -412,3 +412,21 @@
 {"time":"2026-05-13T12:34:18.09883526Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"9d7278e3-1c3d-47c1-85e6-adb8dd80f6fa","resource_id":"e5fb3ed9-dfac-4a84-8053-d54c649b8d48","user_id":"a4fc4f3b-cba5-4a9f-9c9c-f5c1a8419d32","trace_id":"91f24aef4ed129c223970ecd0f2acbf0","span_id":"096e3104714797ec"}
 {"time":"2026-05-13T12:52:23.949680755Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"524f700e-1fdc-48e9-94bc-4dfbfe55574f","resource_id":"e5fb3ed9-dfac-4a84-8053-d54c649b8d48","user_id":"a4fc4f3b-cba5-4a9f-9c9c-f5c1a8419d32","trace_id":"1025025894e251a11305369c1d4c6ffe","span_id":"946fee5b87255058"}
 {"time":"2026-05-13T12:52:31.692303814Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"a8dadce8-202b-4eaf-b885-fc7c44a7edf3","resource_id":"e5fb3ed9-dfac-4a84-8053-d54c649b8d48","user_id":"a4fc4f3b-cba5-4a9f-9c9c-f5c1a8419d32","trace_id":"d9085165ede7e4333ab04d02dc0e3cd9","span_id":"538e36dc6a88e379"}
+{"time":"2026-05-13T19:47:57.049826883Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-13T19:47:57.056217674Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T19:47:57.057592591Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T19:47:57.060637841Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"9952d19f808167e05e36737df0fb409a","span_id":"3a321bd2a5f87209"}
+{"time":"2026-05-13T19:47:57.061089133Z","level":"INFO","msg":"metrics http server starting","service":"booking-service","env":"prod","component":"metrics_http","addr":":9097"}
+{"time":"2026-05-13T19:47:57.063405549Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-13T20:36:37.133869679Z","level":"INFO","msg":"booking created","service":"booking-service","env":"prod","booking_id":"45f8eae2-cc7b-438f-9535-9d66ae115e91","resource_id":"95051962-2480-47dd-a236-3f8b6f039b1f","user_id":"39fd483e-0a1f-4b65-a69a-a81caf80b912","trace_id":"d8a6b3bb745e88ec5c3140651d34a977","span_id":"5989391b299b5f8b"}
+{"time":"2026-05-13T20:38:23.922790923Z","level":"WARN","msg":"grpc request failed","service":"booking-service","env":"prod","method":"/booking.v1.BookingService/CreateBooking","grpc_code":"Internal","error":"rpc error: code = Internal desc = failed to create booking: Service.CreateBooking: booking time conflicts with existing bookings","trace_id":"6901349965d4cfb046f2d014cd0b196d","span_id":"22df9834304849be"}
+{"time":"2026-05-13T20:58:18.942755837Z","level":"INFO","msg":"shutdown signal received","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T20:58:18.943592004Z","level":"INFO","msg":"stopping grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T20:58:18.944318879Z","level":"INFO","msg":"stopping grpc server","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T20:58:18.947927754Z","level":"INFO","msg":"grpc server stopped","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T20:58:44.188776293Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-13T20:58:44.195160293Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T20:58:44.19640696Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-13T20:58:44.19813796Z","level":"INFO","msg":"metrics http server starting","service":"booking-service","env":"prod","component":"metrics_http","addr":":9097"}
+{"time":"2026-05-13T20:58:44.198271668Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"eca0e521264927eb70806738766dc1e9","span_id":"052aaab7ff3b6c4b"}
+{"time":"2026-05-13T20:58:44.200783335Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
