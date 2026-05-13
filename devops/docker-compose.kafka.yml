@@ -1,0 +1,73 @@
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.1
+    environment:
+      TZ: Europe/Moscow
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on:
+      zookeeper:
+        condition: service_started
+    ports:
+      - "9092:9092"
+    environment:
+      TZ: Europe/Moscow
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "kafka-topics --bootstrap-server localhost:9092 --list > /dev/null 2>&1",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  kafbat-ui:
+    image: kafbat/kafka-ui:latest
+    container_name: oregon-kafbat-ui
+    ports:
+      - "8080:8080"
+    environment:
+      TZ: Europe/Moscow
+      KAFKA_CLUSTERS_0_NAME: "oregon-kafka"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:29092"
+      KAFKA_CLUSTERS_0_ZOOKEEPER: "zookeeper:2181"
+      KAFKA_CLUSTERS_0_METRICS_PORT: 9092
+      KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_CLUSTERS_0_POLLING_TIMEOUT_MS: 5000
+      DYNAMIC_CONFIG_ENABLED: "false"
+      SWAGGER_UI_ENABLED: "true"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      zookeeper:
+        condition: service_started
+    restart: on-failure
+
+  kafka-init-topics:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - >-
+        cub kafka-ready -b kafka:29092 1 60;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.user.booking --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.admin.cancel --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.user.cancel --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.messages.start --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic topic.messages.end --replication-factor 1 --partitions 3;
+        kafka-topics --bootstrap-server kafka:29092 --list
+    restart: "no"

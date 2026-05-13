@@ -1,0 +1,75 @@
+services:
+  oregon-notification-service:
+    image: ghcr.io/oregon-mai/oregon-notification-service:latest
+    restart: on-failure
+    environment:
+      - TZ=Europe/Moscow
+      - REDIS_PASS=redispass
+      - REDIS_URL=notification-redis
+      - REDIS_PORT=6379
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - USER_BOOK_TOPIC=topic.user.booking
+      - USER_CANCEL_TOPIC=topic.user.cancel
+      - ADMIN_CANCEL_TOPIC=topic.admin.cancel
+      - ADMIN_UPDATE_TOPIC=admin.update
+      - MESSAGES_TOPIC=messages
+      - DATABASE_URL=postgresql+asyncpg://postgres:root@notification-postgres:5432/postgres
+    depends_on:
+      kafka:
+        condition: service_healthy
+      notification-redis:
+        condition: service_healthy
+      notification-postgres:
+        condition: service_healthy
+
+  notification-redis:
+    image: redis:7.4-bookworm
+    environment:
+      - TZ=Europe/Moscow
+    volumes:
+      - redisdata-notification:/data
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --requirepass "redispass"
+      --maxmemory-policy allkeys-lru
+      --save ""
+      --tcp-backlog 511
+      --timeout 300
+      --tcp-keepalive 300
+      --databases 16
+      --stop-writes-on-bgsave-error no
+      --repl-diskless-sync no
+    restart: on-failure
+    sysctls:
+      - net.core.somaxconn=512
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "redispass", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  notification-postgres:
+    image: postgres:16-alpine
+    environment:
+      TZ: Europe/Moscow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata-notification:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  redisdata-notification:
+  pgdata-notification:

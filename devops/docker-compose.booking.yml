@@ -1,0 +1,38 @@
+services:
+  oregon-booking-service:
+    image: ghcr.io/oregon-mai/oregon-booking-service:latest
+    environment:
+      - TZ=Europe/Moscow
+    volumes:
+      - ../configs/booking.yaml:/app/config/local.yml:ro
+      - ../logs/:/app/logs/
+    depends_on:
+      booking-postgres:
+        condition: service_healthy
+      oregon-resource-service:
+        condition: service_started
+      kafka-init-topics:
+        condition: service_completed_successfully
+      jaeger:
+        condition: service_started
+    restart: on-failure
+
+  booking-postgres:
+    image: postgres:16-alpine
+    environment:
+      TZ: Europe/Moscow
+      POSTGRES_DB: booking_service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata-booking:/var/lib/postgresql/data
+      - ../migrations/0001_bookings.sql:/docker-entrypoint-initdb.d/0001_bookings.sql:ro
+      - ../migrations/0002_outbox.sql:/docker-entrypoint-initdb.d/0002_outbox.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d booking_service"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata-booking:

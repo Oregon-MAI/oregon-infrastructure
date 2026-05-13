@@ -1,0 +1,46 @@
+services:
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: oregon-loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ../configs/loki-config.yaml:/etc/loki/local-config.yaml:ro
+      - loki-data:/loki
+
+  promtail:
+    image: grafana/promtail:2.9.4
+    container_name: oregon-promtail
+    command: -config.file=/etc/promtail/config.yaml
+    volumes:
+      - ../configs/promtail-config.yaml:/etc/promtail/config.yaml:ro
+      - ../logs/:/var/log/app/:ro
+    depends_on:
+      - loki
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../configs/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      oregon-api-gw:
+        condition: service_started
+
+  grafana:
+    image: grafana/grafana-enterprise:13.0.1-ubuntu
+    container_name: oregon-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+    volumes:
+      - ../grafana/provisioning/:/etc/grafana/provisioning/:ro
+      - ../grafana/dashboards/:/var/lib/grafana/dashboards/:ro
+
+volumes:
+  loki-data:
