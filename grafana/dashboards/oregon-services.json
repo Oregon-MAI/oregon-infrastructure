@@ -281,7 +281,7 @@
           "datasource": {
             "type": "loki"
           },
-          "expr": "sum by (job) (rate({job=~\"api-gateway|booking-service|resource-service\"}|json|level=~\"WARN|ERROR\" [5m]))",
+          "expr": "sum by(job) (rate({job=~\"api-gateway|booking-service|resource-service|sso-service\"} | json | level =~ `WARN|ERROR` [5m]))",
           "refId": "A"
         }
       ],

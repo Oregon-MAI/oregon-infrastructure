@@ -1,3 +1,6 @@
+global:
+  scrape_interval: 15s
+
 scrape_configs:
   - job_name: api-gateway
     static_configs:
@@ -11,3 +14,7 @@ scrape_configs:
           - oregon-sso-service:8001
         labels:
           env: compose
+  - job_name: booking-service
+    static_configs:
+      - targets:
+          - oregon-booking-service:9097
