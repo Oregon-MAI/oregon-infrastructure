@@ -14,6 +14,8 @@ services:
   postgres-sso-service:
     image: postgres:16-alpine
     container_name: postgres-sso-service
+    mem_limit: 512m
+    shm_size: 256mb
     environment:
       TZ: Europe/Moscow
       POSTGRES_USER: postgres
@@ -27,7 +29,20 @@ services:
       timeout: 3s
       retries: 10
       start_period: 5s
-    command: ["postgres", "-p", "5433"]
+    command:
+      - "postgres"
+      - "-p"
+      - "5433"
+      - "-c"
+      - "shared_buffers=128MB"
+      - "-c"
+      - "work_mem=4MB"
+      - "-c"
+      - "maintenance_work_mem=64MB"
+      - "-c"
+      - "effective_cache_size=256MB"
+      - "-c"
+      - "max_connections=100"
 
 volumes:
   pgdata-sso:

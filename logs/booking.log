@@ -430,3 +430,9 @@
 {"time":"2026-05-13T20:58:44.19813796Z","level":"INFO","msg":"metrics http server starting","service":"booking-service","env":"prod","component":"metrics_http","addr":":9097"}
 {"time":"2026-05-13T20:58:44.198271668Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"eca0e521264927eb70806738766dc1e9","span_id":"052aaab7ff3b6c4b"}
 {"time":"2026-05-13T20:58:44.200783335Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
+{"time":"2026-05-17T21:34:45.241439174Z","level":"INFO","msg":"kafka producer initialized","service":"booking-service","env":"prod","brokers":["kafka:29092"]}
+{"time":"2026-05-17T21:34:45.248685133Z","level":"INFO","msg":"application initialized","service":"booking-service","env":"prod"}
+{"time":"2026-05-17T21:34:45.250154049Z","level":"INFO","msg":"starting grpc app","service":"booking-service","env":"prod"}
+{"time":"2026-05-17T21:34:45.252250424Z","level":"INFO","msg":"metrics http server starting","service":"booking-service","env":"prod","component":"metrics_http","addr":":9097"}
+{"time":"2026-05-17T21:34:45.252509508Z","level":"INFO","msg":"outbox worker started","service":"booking-service","env":"prod","trace_id":"15394d668df99f043749e631d0d6e654","span_id":"7a19dcbde6a42642"}
+{"time":"2026-05-17T21:34:45.255030924Z","level":"INFO","msg":"grpc listener started","service":"booking-service","env":"prod","addr":"[::]:60017"}
