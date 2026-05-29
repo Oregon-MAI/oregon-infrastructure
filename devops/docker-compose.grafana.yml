@@ -27,6 +27,7 @@ services:
       - ../configs/prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.enable-remote-write-receiver"
     depends_on:
       oregon-api-gw:
         condition: service_started

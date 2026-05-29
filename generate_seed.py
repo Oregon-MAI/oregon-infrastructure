@@ -7,11 +7,17 @@ def generate_data():
     resource_sqls = []
     booking_sqls = []
 
-    user_ids = [str(uuid.uuid4()) for _ in range(5)]
+    users_count = 100
+    meeting_rooms_count = 50
+    workspaces_count = 100
+    devices_count = 50
+    bookings_count = 1000
+
+    user_ids = [str(uuid.uuid4()) for _ in range(users_count)]
     resources = []
 
     # Meeting rooms
-    for i in range(10):
+    for i in range(meeting_rooms_count):
         res_id = str(uuid.uuid4())
         name = f"Meeting Room {i + 1}"
         loc = f"Floor {random.randint(1, 5)}"
@@ -25,7 +31,7 @@ def generate_data():
         )
 
     # Workspaces
-    for i in range(20):
+    for i in range(workspaces_count):
         res_id = str(uuid.uuid4())
         name = f"Workspace {i + 1}"
         loc = f"Floor {random.randint(1, 5)}"
@@ -39,7 +45,7 @@ def generate_data():
         )
 
     # Devices
-    for i in range(15):
+    for i in range(devices_count):
         res_id = str(uuid.uuid4())
         name = f"Device {i + 1}"
         loc = "Storage"
@@ -54,7 +60,7 @@ def generate_data():
 
     # Bookings
     now = datetime.datetime.now(datetime.timezone.utc)
-    for _ in range(50):
+    for _ in range(bookings_count):
         book_id = str(uuid.uuid4())
         res = random.choice(resources)
         user_id = random.choice(user_ids)
