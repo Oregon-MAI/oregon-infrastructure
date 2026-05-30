@@ -48,6 +48,9 @@ services:
       KAFKA_CLUSTERS_0_POLLING_TIMEOUT_MS: 5000
       DYNAMIC_CONFIG_ENABLED: "false"
       SWAGGER_UI_ENABLED: "true"
+      AUTH_TYPE: ${AUTH_TYPE}
+      SPRING_SECURITY_USER_NAME: ${SPRING_SECURITY_USER_NAME}
+      SPRING_SECURITY_USER_PASSWORD: ${SPRING_SECURITY_USER_PASSWORD}
     depends_on:
       kafka:
         condition: service_healthy
