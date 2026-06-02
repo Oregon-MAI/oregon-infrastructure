@@ -23,6 +23,7 @@ services:
     volumes:
       - pgdata-resource:/var/lib/postgresql/data
       - ../migrations/0001_resources.sql:/docker-entrypoint-initdb.d/0001_resources.sql:ro
+      - ../seed_resources.sql:/docker-entrypoint-initdb.d/0002_resources.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
       interval: 5s

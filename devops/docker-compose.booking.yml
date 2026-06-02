@@ -28,6 +28,7 @@ services:
       - pgdata-booking:/var/lib/postgresql/data
       - ../migrations/0001_bookings.sql:/docker-entrypoint-initdb.d/0001_bookings.sql:ro
       - ../migrations/0002_outbox.sql:/docker-entrypoint-initdb.d/0002_outbox.sql:ro
+      - ../seed_bookings.sql:/docker-entrypoint-initdb.d/0003_test.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d booking_service"]
       interval: 5s

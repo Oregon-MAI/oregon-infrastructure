@@ -59,10 +59,15 @@ const RESOURCE_TYPES = ["meeting_room", "workspace", "device"];
 const vuState = new Map();
 
 export function setup() {
-  const users = SSO_LOGIN && SSO_PASSWORD ? [loginWithCreds(SSO_LOGIN, SSO_PASSWORD)] : registerUsers(USERS_COUNT);
+  const users =
+    SSO_LOGIN && SSO_PASSWORD
+      ? [loginWithCreds(SSO_LOGIN, SSO_PASSWORD)]
+      : registerUsers(USERS_COUNT);
 
   if (!users.length || !users[0].token) {
-    throw new Error("SSO token is empty. Check login/register and SSO availability.");
+    throw new Error(
+      "SSO token is empty. Check login/register and SSO availability.",
+    );
   }
 
   const listRes = http.get(`${BASE_URL}/api/v1/resources/list`, {
@@ -70,13 +75,19 @@ export function setup() {
   });
 
   if (listRes.status === 401 || listRes.status === 403) {
-    throw new Error("Unauthorized on /api/v1/resources/list. Check SSO token or gateway auth.");
+    throw new Error(
+      "Unauthorized on /api/v1/resources/list. Check SSO token or gateway auth.",
+    );
   }
 
   const resourceIdsByType = extractResourcesByType(listRes);
-  const resourceTypes = RESOURCE_TYPES.filter((type) => resourceIdsByType[type].length > 0);
+  const resourceTypes = RESOURCE_TYPES.filter(
+    (type) => resourceIdsByType[type].length > 0,
+  );
   if (!resourceTypes.length) {
-    throw new Error("No resources returned from /api/v1/resources/list. Seed data or check resource service.");
+    throw new Error(
+      "No resources returned from /api/v1/resources/list. Seed data or check resource service.",
+    );
   }
 
   return { users, resourceIdsByType, resourceTypes };
@@ -88,12 +99,15 @@ export default function (data) {
   }
 
   const state = getUserState(data);
-  const userId = state.userId || __ENV.USER_ID || "51fe2d04-fa10-4855-8640-eff4f8975d52";
+  const userId =
+    state.userId || __ENV.USER_ID || "51fe2d04-fa10-4855-8640-eff4f8975d52";
 
   maybeRefreshToken(state);
 
   data.resourceTypes.forEach((resourceType) => {
-    const resourceId = state.resourceByType[resourceType] || randomItem(data.resourceIdsByType[resourceType]);
+    const resourceId =
+      state.resourceByType[resourceType] ||
+      randomItem(data.resourceIdsByType[resourceType]);
     if (!resourceId) {
       return;
     }
@@ -107,7 +121,7 @@ export default function (data) {
         starts_at: slot.startsAt,
         ends_at: slot.endsAt,
       }),
-      { headers: authHeaders(state.token), timeout: HTTP_TIMEOUT }
+      { headers: authHeaders(state.token), timeout: HTTP_TIMEOUT },
     );
 
     check(createRes, {
@@ -125,7 +139,7 @@ export default function (data) {
       const cancelRes = http.post(
         `${BASE_URL}/api/v1/bookings/${bookingId}/cancel`,
         null,
-        { headers: authHeaders(state.token), timeout: HTTP_TIMEOUT }
+        { headers: authHeaders(state.token), timeout: HTTP_TIMEOUT },
       );
       check(cancelRes, { "cancel booking ok": (r) => r.status === 200 });
     }
@@ -136,8 +150,6 @@ export default function (data) {
     });
     check(resourceRes, { "get resource ok": (r) => r.status === 200 });
   });
-
-  sleep(1);
 }
 
 function loginWithCreds(login, password) {
@@ -147,7 +159,7 @@ function loginWithCreds(login, password) {
       login,
       password,
     }),
-    { headers: { "Content-Type": "application/json" } }
+    { headers: { "Content-Type": "application/json" } },
   );
 
   check(res, { "login ok": (r) => r && r.status === 200 });
@@ -175,7 +187,7 @@ function register() {
       surname: "Test",
       email: `loadtest_${nonce}@example.com`,
     }),
-    { headers: { "Content-Type": "application/json" } }
+    { headers: { "Content-Type": "application/json" } },
   );
 
   check(res, { "register ok": (r) => r && r.status === 200 });
@@ -230,8 +242,12 @@ function getUserState(data) {
 function nextSlot(state, resourceType) {
   const slotStepMs = (SLOT_DURATION_MIN + SLOT_GAP_MIN) * 60 * 1000;
   const index = state.slotOffset + state.slotIndexByType[resourceType];
-  const startsAt = new Date(state.baseStartMs + index * slotStepMs).toISOString();
-  const endsAt = new Date(state.baseStartMs + index * slotStepMs + SLOT_DURATION_MIN * 60 * 1000).toISOString();
+  const startsAt = new Date(
+    state.baseStartMs + index * slotStepMs,
+  ).toISOString();
+  const endsAt = new Date(
+    state.baseStartMs + index * slotStepMs + SLOT_DURATION_MIN * 60 * 1000,
+  ).toISOString();
   state.slotIndexByType[resourceType] += 1;
   return { startsAt, endsAt };
 }
@@ -302,7 +318,9 @@ function extractResourcesByType(listRes) {
 
   items.forEach((item) => {
     const id = item.resource_id || item.uuid || item.id;
-    const type = normalizeResourceType(item.resource_type || item.type || item.resourceType);
+    const type = normalizeResourceType(
+      item.resource_type || item.type || item.resourceType,
+    );
     if (id && grouped[type]) {
       grouped[type].push(id);
     }
@@ -340,5 +358,7 @@ function extractBookingId(createRes) {
     return payload.booking.booking_id;
   }
 
-  return payload && (payload.booking_id || payload.id) ? payload.booking_id || payload.id : "";
+  return payload && (payload.booking_id || payload.id)
+    ? payload.booking_id || payload.id
+    : "";
 }

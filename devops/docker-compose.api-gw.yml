@@ -39,8 +39,6 @@ services:
 
   oregon-api-gw:
     image: ghcr.io/oregon-mai/oregon-api-gateway:latest
-    deploy:
-      replicas: 3
     environment:
       - TZ=Europe/Moscow
     volumes:
