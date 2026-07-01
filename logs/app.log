@@ -1,6 +1,0 @@
-{"time":"2026-05-30T19:57:30.673584044+03:00","level":"INFO","msg":"request started","service":"api-gateway","env":"prod","method":"GET","path":"/metrics","client_ip":"172.18.0.19"}
-{"time":"2026-05-30T19:57:30.674522919+03:00","level":"INFO","msg":"request completed","service":"api-gateway","env":"prod","method":"GET","path":"/metrics","status":200,"latency":952417}
-{"time":"2026-05-30T19:57:45.672070676+03:00","level":"INFO","msg":"request started","service":"api-gateway","env":"prod","method":"GET","path":"/metrics","client_ip":"172.18.0.19"}
-{"time":"2026-05-30T19:57:45.672593968+03:00","level":"INFO","msg":"request completed","service":"api-gateway","env":"prod","method":"GET","path":"/metrics","status":200,"latency":530958}
-{"time":"2026-05-30T19:58:00.672514252+03:00","level":"INFO","msg":"request started","service":"api-gateway","env":"prod","method":"GET","path":"/metrics","client_ip":"172.18.0.19"}
-{"time":"2026-05-30T19:58:00.673237752+03:00","level":"INFO","msg":"request completed","service":"api-gateway","env":"prod","method":"GET","path":"/metrics","status":200,"latency":736083}
